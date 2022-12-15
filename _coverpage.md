@@ -1,6 +1,6 @@
-# Jexactyl <small>3.x</small>
+# Jexactyl Brasil <small>3.x</small>
 
-> The documentation for Jexactyl.
+> A documentação para Jexactyl agora portada para o portugues.
 
 [Get Started](/README.md)
 [Discord](https://discord.com/invite/qttGR4Z5Pk)
