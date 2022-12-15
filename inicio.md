@@ -16,7 +16,7 @@ para tornar este software mais fácil mais avançado, ao mesmo tempo em que é m
 ## Pronto para começar?
 Se você é um novo usuário, você deve verificar o nosso [Guias de Instalação](https://docs.jexactylbrasil.ml/#/principal/painel/instalação/dependencias).
 
-Se você é um usuário mais experiente que deseja editar o Painel, confira nossa [Guia de Modificação](https://docs.jexactylbrasil.ml/#/principal/buildar/instalação).
+Se você é um usuário mais experiente que deseja editar o Painel, confira nossa [Guia de Modificação](https://docs.jexactylbrasil.ml/#/principal/build/instalação).
 
 ## Screenshots
 ![Dashboard](https://cdn.discordapp.com/attachments/927394141158133760/1034607072316231740/unknown.png)
