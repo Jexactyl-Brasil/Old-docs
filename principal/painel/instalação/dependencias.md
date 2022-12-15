@@ -1,7 +1,6 @@
 # Instalar dependências
 Você precisará instalar as seguintes dependências para executar e usar o Jexactyl:
 
-***
 
 ?>
 
