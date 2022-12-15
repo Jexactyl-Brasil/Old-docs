@@ -21,6 +21,7 @@ Se você é um usuário mais experiente que deseja editar o Painel, confira noss
 ## Screenshots
 ![Painel](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
 ![Jexactyl menu](https://user-images.githubusercontent.com/30575805/207936544-7ee143cd-e0e6-4076-929a-cfc97054b33e.png)
+![Console do Servidor](public/images/new/console.png)
 ![Criar Servidor](https://cdn.discordapp.com/attachments/1034607211630051358/1034607749536956466/unknown.png)
 ![Console do Servidor](https://cdn.discordapp.com/attachments/927394141158133760/1034607072895053845/unknown.png)
 ![Loja](public/images/new/loja.png)
