@@ -4,7 +4,7 @@ Jexactyl é um painel moderno, rápido e rico em recursos do [Pterodactyl Painel
 Jexactyl visa melhorar os recursos já existentes deste software, bem como integrar muitas outras funções
 para tornar este software mais fácil mais avançado, ao mesmo tempo em que é mais agradável de usar.
 
-![Dashboard](https://cdn.discordapp.com/attachments/927394141158133760/1034607072316231740/unknown.png)
+![Dashboard](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
 
 ## Características
 - Construído usando as últimas dependências e pacotes
