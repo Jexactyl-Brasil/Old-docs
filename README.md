@@ -19,7 +19,7 @@ Se você é um novo usuário, você deve verificar o nosso [Guias de Instalaçã
 Se você é um usuário mais experiente que deseja editar o Painel, confira nossa [Guia de Modificação](https://docs.jexactylbrasil.ml/#/principal/build/instalação).
 
 ## Screenshots
-![Dashboard](https://cdn.discordapp.com/attachments/927394141158133760/1034607072316231740/unknown.png)
+![Dashboard](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
 ![Storefront](https://cdn.discordapp.com/attachments/1034607211630051358/1034607643744014336/unknown.png)
 ![Server Create](https://cdn.discordapp.com/attachments/1034607211630051358/1034607749536956466/unknown.png)
 ![Server Console](https://cdn.discordapp.com/attachments/927394141158133760/1034607072895053845/unknown.png)
