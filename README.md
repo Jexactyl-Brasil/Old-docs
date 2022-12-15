@@ -26,4 +26,8 @@ Se você é um usuário mais experiente que deseja editar o Painel, confira noss
 ![Loja](public/images/new/loja.png)
 
 ## Temas do Administrador
-![tema admin](public/images/new/admin-blue.png)
+![tema Padrão](public/images/new/temapadrao.png)
+![tema Minecraft](public/images/new/temaminecraft.png)
+![tema Branco](public/images/new/temabranco.png)
+![tema Escuro](public/images/new/temaescuro.png)
+![tema Azul](public/images/new/temaazul.png)
