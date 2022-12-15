@@ -28,6 +28,6 @@ Se você é um usuário mais experiente que deseja editar o Painel, confira noss
 ## Temas do Administrador
 ![tema Padrão](public/images/new/temapadrao.png)
 ![tema Minecraft](public/images/new/temaminecraft.png)
-![tema Branco](public/images/new/temabranco.png)
+![tema Claro](public/images/new/temaclaro.png)
 ![tema Escuro](public/images/new/temaescuro.png)
 ![tema Azul](public/images/new/temaazul.png)
