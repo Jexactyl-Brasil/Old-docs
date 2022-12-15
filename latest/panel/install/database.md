@@ -1,22 +1,22 @@
-# Database Setup
+# Configuração do Database
 ***
-In order for the Panel to get and set data, we'll need a database.
-This is where all the information about the Panel is stored.
-In this case, we're using MySQL - although Amazon Lambda and other
-database services are also viable options. 
+Para que o Painel obtenha e defina dados, precisaremos de um banco de dados.
+É aqui que todas as informações sobre o Painel são armazenadas.
+Nesse caso, estamos usando o MySQL - embora o Amazon Lambda e outros
+serviços de banco de dados também são opções viáveis. 
 
 ?>
-One thing you could do to further secure and scale the Panel is to have a 
-separate VPS or server for databasing. This could be beneficial down the 
-line for things like multi-cluster deployments and load balancing databases.
+Uma coisa que você pode fazer para proteger e dimensionar ainda mais o Painel é ter um 
+VPS separado ou servidor para base de dados. Isso pode ser benéfico para baixo do 
+para coisas como implantações de vários clusters e bancos de dados de balanceamento de carga.
 
 ***
-### Create database
+### Criando database
 ```sql
 mysql -u root -p
 
-# Remember to change 'yourPassword' below to be a unique password
-CREATE USER 'jexactyl'@'127.0.0.1' IDENTIFIED BY 'yourPassword';
+# Lembre-se de alterar "suaSenha" abaixo para ser uma senha exclusiva
+CREATE USER 'jexactyl'@'127.0.0.1' IDENTIFIED BY 'suasenha';
 CREATE DATABASE panel;
 GRANT ALL PRIVILEGES ON panel.* TO 'jexactyl'@'127.0.0.1' WITH GRANT OPTION;
 exit
