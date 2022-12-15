@@ -1,4 +1,4 @@
-# Bem-vindo ao Jexactyl!
+# Bem-vindo ao Jexactyl Brasil!
 
 Jexactyl é um garfo moderno, rápido e rico em recursos do [Pterodactyl Painel](https://github.com/pterodactyl/panel).
 Jexactyl visa melhorar os recursos já existentes deste software, bem como integrar muitas outras funções
