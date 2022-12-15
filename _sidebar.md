@@ -1,6 +1,6 @@
 * **painel (v3.x)**
     * `instalação`
-        * [Instalação de dependencias](principal/painel/instalação/dependencias.md)
+        * [Dependencias](principal/painel/instalação/dependencias.md)
         * [Baixar Arquivos](principal/painel/instalação/download.md)
         * [Configurar Database](principal/painel/instalação/database.md)
         * [Configurar Environment](principal/painel/instalação/environment.md)
