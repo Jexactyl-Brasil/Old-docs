@@ -1,6 +1,6 @@
 # Bem-vindo ao Jexactyl!
 
-Jexactyl é um painel moderno, rápido e rico em recursos do [Painel Pterodactyl](https://github.com/pterodactyl/panel).
+Jexactyl é um York moderno, rápido e rico em recursos do [Painel Pterodactyl](https://github.com/pterodactyl/panel).
 Jexactyl visa melhorar os recursos já existentes deste software, bem como integrar muitas outras funções
 para tornar este software mais fácil mais avançado, ao mesmo tempo em que é mais agradável de usar.
 
