@@ -1,10 +1,10 @@
 # Bem-vindo ao Jexactyl!
 
-Jexactyl é um garfo moderno, rápido e rico em recursos do [Pterodactyl Painel](https://github.com/pterodactyl/panel).
+Jexactyl é um painel moderno, rápido e rico em recursos do [Painel Pterodactyl](https://github.com/pterodactyl/panel).
 Jexactyl visa melhorar os recursos já existentes deste software, bem como integrar muitas outras funções
 para tornar este software mais fácil mais avançado, ao mesmo tempo em que é mais agradável de usar.
 
-![Dashboard](https://cdn.discordapp.com/attachments/927394141158133760/1034607072316231740/unknown.png)
+![Dashboard](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
 
 ## Características
 - Construído usando as últimas dependências e pacotes
@@ -19,9 +19,15 @@ Se você é um novo usuário, você deve verificar o nosso [Guias de Instalaçã
 Se você é um usuário mais experiente que deseja editar o Painel, confira nossa [Guia de Modificação](https://docs.jexactylbrasil.ml/#/principal/build/instalação).
 
 ## Screenshots
-![Dashboard](https://cdn.discordapp.com/attachments/927394141158133760/1034607072316231740/unknown.png)
-![Storefront](https://cdn.discordapp.com/attachments/1034607211630051358/1034607643744014336/unknown.png)
-![Server Create](https://cdn.discordapp.com/attachments/1034607211630051358/1034607749536956466/unknown.png)
-![Server Console](https://cdn.discordapp.com/attachments/927394141158133760/1034607072895053845/unknown.png)
-![Admin Default](public/images/new/admin-default.png)
-![Admin Theme](public/images/new/admin-blue.png)
+![Painel](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
+![Jexactyl menu](https://user-images.githubusercontent.com/30575805/207936544-7ee143cd-e0e6-4076-929a-cfc97054b33e.png)
+![Criar Servidor Loja](public/images/new/criarserverloja.png)
+![Console do Servidor](public/images/new/console.png)
+![Loja](public/images/new/loja.png)
+
+## Temas do Administrador
+![tema Padrão](public/images/new/temapadrao.png)
+![tema Minecraft](public/images/new/temaminecraft.png)
+![tema Claro](public/images/new/temaclaro.png)
+![tema Escuro](public/images/new/temaescuro.png)
+![tema Azul](public/images/new/temaazul.png)
