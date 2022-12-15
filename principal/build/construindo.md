@@ -1,17 +1,17 @@
-# Building Frontend Files
+# Criando arquivos de front-end
 
 ***
 
-### Running build command
+### Executando o comando build
 
-Run the commands below in order to rebuild Jexactyl's frontend.
+Execute os comandos abaixo para reconstruir o front-end do Jexactyl.
 
 ```bash
 cd /var/www/jexactyl
 
-# If building in a development environment:
+# Se construir em um desenvolvimento de environment:
 yarn watch
 
-# If building for production:
+# Se construir para produção:
 yarn build:production
 ```

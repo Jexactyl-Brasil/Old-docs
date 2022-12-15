@@ -1,28 +1,28 @@
-# Apache with SSL Configuration
+# Apache com configuração SSL
 
 ***
 
-### Disabling default configuration
+### Desativando a configuração padrão
 
-Firstly, let's remove the default Apache configuration from your server.
+Em primeiro lugar, vamos remover a configuração padrão do Apache do seu servidor.
 ```bash
 a2dissite 000-default.conf
 ```
 
-After we've done that, we can make our configuration for Jexactyl to run.
+Feito isso, podemos fazer nossa configuração para o Jexactyl rodar.
 
 ***
 
-### Create configuration file
+### Criar arquivo de configuração
 
-!> Make sure to replace `<domain>` with your own domain in this config file.
-Please also note that this configuration is for Apache with SSL enabled.
-If you want to use NGINX as a webserver, or do not want to use SSL, please refer
-to the other webserver instructions.
+!> Certifique-se de substituir `<domain>` pelo seu próprio domínio neste arquivo de configuração.
+Observe também que esta configuração é para Apache com SSL ativado.
+Se você deseja usar o NGINX como um servidor web ou não deseja usar SSL, consulte
+às instruções do outro servidor web.
 
-Note: When using Apache, make sure you have the `libapache2-mod-php` package installed or else PHP will not display on your webserver.
+Nota: Ao usar o Apache, certifique-se de ter o pacote `libapache2-mod-php` instalado ou então o PHP não será exibido em seu servidor web.
 
-Make a file called `panel.conf` in `/etc/apache2/sites-available` and insert the following:
+Faça um arquivo chamado `panel.conf` em `/etc/apache2/sites-available` e insira o seguinte:
 
 ```apache
 <VirtualHost *:80>
@@ -55,24 +55,24 @@ Make a file called `panel.conf` in `/etc/apache2/sites-available` and insert the
 
 ***
 
-### Enabling configuration
+### Ativando a configuração
 
-Firstly, let's link the file we've made to the directory which Apache uses for configs.
+Em primeiro lugar, vamos vincular o arquivo que criamos ao diretório que o Apache usa para as configurações.
 ```bash
 ln -s /etc/apache2/sites-available/panel.conf /etc/apache2/sites-enabled/panel.conf
 ```
 
-Then, we'll apply the settings Apache needs to host Jexactyl.
+Em seguida, aplicaremos as configurações que o Apache precisa para hospedar o Jexactyl.
 ```bash
 sudo a2enmod rewrite
 sudo a2enmod ssl
 ```
 
-Finally, we'll restart Apache in order to bring Jexactyl online.
+Por fim, reiniciaremos o Apache para colocar o Jexactyl online.
 ```bash
 systemctl restart apache2
 ```
 
 ?>
-Congrats! Jexactyl is installed and should be functioning normally.
-If you encounter any issues, please let us know on our [Discord](https://discord.com/invite/qttGR4Z5Pk).
+Parabéns! Jexactyl está instalado e deve estar funcionando normalmente.
+Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.com/invite/qttGR4Z5Pk).

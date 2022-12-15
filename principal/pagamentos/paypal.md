@@ -1,58 +1,58 @@
-# Accept payments with PayPal
+# Aceite pagamentos com PayPal
 
 ***
 
-This guide will show you how to easily get started with using PayPal with Jexactyl
-in order to process credit purchases.
+Este guia mostrará como começar facilmente a usar o PayPal com Jexactyl
+para processar compras a crédito.
 
-!> This system was implemented in `v3.1.0`. Please make sure you're running this version
-or newer in order to use the PayPal system.
-
-***
-
-### Obtain Client ID and Client Secret
-
-You'll need to firstly create a new 'App' with PayPal in order to get a Client ID and secret
-for use with Jexactyl.
+!> Este sistema foi implementado na `v3.1.0`. Verifique se você está executando esta versão
+ou mais recente para usar o sistema PayPal.
 
 ***
 
-### 1. Log into PayPal Developer Console
+### Obtenha o ID do cliente e o segredo do cliente
+
+Você precisará primeiro criar um novo 'App' com o PayPal para obter um ID de cliente e um segredo
+para uso com Jexactyl.
+
+***
+
+### 1. Faça login no console do desenvolvedor do PayPal
 ![image](https://www.knowband.com/blog/wp-content/uploads/2019/02/Paypal-login-PayPal-client-Id.png)
 ![image](https://www.knowband.com/blog/wp-content/uploads/2019/02/2.gif)
 
-### 2. Head to the dashboard and create a new App
-!> Make sure that the toggle at the top of the page is set to LIVE mode, not Sandbox.
+### 2. Vá para o painel e crie um novo aplicativo
+!> Certifique-se de que a alternância na parte superior da página esteja definida para o modo AO VIVO, não Sandbox.
 
 ![image](https://www.knowband.com/blog/wp-content/uploads/2019/02/5.png)
 
-### 3. Create your PayPal App
+### 3. Crie seu aplicativo do PayPal
 ![image](https://www.knowband.com/blog/wp-content/uploads/2019/02/6.png)
 
-### 4. Obtain Client ID and Secret
+### 4. Obtenha o ID e o segredo do cliente
 ![image](https://www.knowband.com/blog/wp-content/uploads/2019/02/2021-04-21.gif)
 
 ***
 
-### 5. Add Client ID and Secret to Jexactyl
-Next, you'll need to place these keys in your `.env` file in order to allow Jexactyl to login.
+### 5. Adicionar ID e Segredo do Cliente ao Jexactyl
+Em seguida, você precisará colocar essas chaves em seu arquivo `.env` para permitir o login do Jexactyl.
 
 ```bash
 cd /var/www/jexactyl
 nano .env
 
-# Fill in the fields PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET
+# Preencha os campos PAYPAL_CLIENT_ID e PAYPAL_CLIENT_SECRET
 ```
 
-### 6. Enable the PayPal gateway in settings
+### 6. Ative o gateway do PayPal nas configurações
 
-?> Make sure the 'PayPal enabled' setting is set to `Enabled`.
+?> Certifique-se de que a configuração 'PayPal' esteja definida como 'Habilitado'.
 
 ![image](../../public/images/store_admin.png)
 
-### 7. Test your configuration
+### 7. Teste sua configuração
 
-Head over to the Jexactyl Storefront and click the 'Balance' tab. Once you're there, attempt to buy `x` credits with PayPal.
-If the page redirects to a PayPal purchase portal, congrats! You've successfully set up and configured PayPal.
+Vá até a Jexactyl Storefront e clique na guia 'Carteira'. Quando estiver lá, tente comprar créditos `x` com o PayPal.
+Se a página redirecionar para um portal de compras do PayPal, parabéns! Você configurou e configurou com sucesso o PayPal.
 
-?> If you run into issues while getting started with PayPal, let us know in the [Jexactyl Discord](https://discord.com/invite/qttGR4Z5Pk)
+?> Se você tiver problemas ao começar a usar o PayPal, informe-nos no [Jexactyl Discord](https://discord.com/invite/qttGR4Z5Pk)

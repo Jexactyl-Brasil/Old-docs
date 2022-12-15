@@ -1,80 +1,80 @@
-# Accepting payments with the Stripe API
+# Aceitando pagamentos com a Stripe API
 
 ***
 
-This guide will show you how to easily get started with using Stripe with Jexactyl
-in order to process credit purchases.
+Este guia mostrará como começar facilmente a usar o Stripe com Jexactyl
+para processar compras a crédito.
 
-!> This system was implemented in `v3.2.0`. Please make sure you're running this version
-or newer in order to use the Stripe system.
-
-***
-
-### Obtain Client Secret and Webhook Secret
-
-In order to process payments via Stripe, you&apos;ll need to firstly
-create an account and generate an API key as well as a webhook secret.
-
-?> Register an account with Stripe at https://stripe.com to get started.
+!> Este sistema foi implementado na `v3.2.0`. Verifique se você está executando esta versão
+ou mais recente para usar o sistema Stripe.
 
 ***
 
-### 1. Log into the Stripe Dashboard
+### Obtenha o segredo do cliente e o segredo do webhook
 
-Once logged in and set up, you should be at a page which looks like this:
+Para processar pagamentos via Stripe, você precisará primeiro
+crie uma conta e gere uma chave de API, bem como um segredo do webhook.
+
+?> Registre uma conta no Stripe em https://stripe.com para começar.
+
+***
+
+### 1. Faça login no Painel Stripe
+
+Uma vez logado e configurado, você deve estar em uma página que se parece com esta:
 
 ![image](../../public/images/stripe-dashboard.jpg)
 
-### 2. Generate an API Key
+### 2. Gere uma chave de API
 
-Click the `Developers` tab on the right of the screen. Then, on the sidebar,
-head to 'API keys' and generate a new API key.
+Clique na guia `Desenvolvedores` à direita da tela. Em seguida, na barra lateral,
+vá para 'chaves de API' e gere uma nova chave de API.
 
 ![image](../../public/images/stripe-apikey.jpg)
 
-### 3. Create Webhook
+### 3. Criar Webhook
 
-After creating the API key, you&apos;ll need to create a `webhook` which will
-allow Stripe events to be processed via Jexactyl. Head to 'Webhooks' on the sidebar
-and generate a new webhook.
+Depois de criar a chave de API, você precisará criar um `webhook` que irá
+permitir que eventos Stripe sejam processados via Jexactyl. Vá para 'Webhooks' na barra lateral
+e gerar um novo webhook.
 
 ![image](../../public/images/stripe-webhook.png)
 
-In the `Endpoint URL` field enter this: `https://<your.panel.tld>/stripe/listen`. 
+No campo `Endpoint URL` digite: `https://<your.panel.tld>/stripe/listen`.
 
-Then add the following events:
+Em seguida, adicione os seguintes eventos:
 
 ![image](../../public/images/stripe-perms.jpg)
 
-### 4. Copy generated keys 
+### 4. Copie as chaves geradas
 
-After you've done this, copy both your webhook secret and your API key,
-so we can put them in the .env configuration file.
+Depois de fazer isso, copie o segredo do webhook e a chave da API,
+para que possamos colocá-los no arquivo de configuração .env.
 
 ![image](../../public/images/stripe-webhook-secret.jpg)
 ![image](../../public/images/stripe-api-secret.jpg)
 
 ***
 
-### 5. Add Client ID and Secret to Jexactyl
-Next, you'll need to place these keys in your `.env` file in order to allow Jexactyl to login.
+### 5. Adicionar ID e Segredo do Cliente ao Jexactyl
+Em seguida, você precisará colocar essas chaves em seu arquivo `.env` para permitir o login do Jexactyl.
 
 ```bash
 cd /var/www/jexactyl
 nano .env
 
-# Fill in the fields STRIPE_CLIENT_SECRET and STRIPE_WEBHOOK_SECRET
+# Preencha os campos STRIPE_CLIENT_SECRET e STRIPE_WEBHOOK_SECRET
 ```
 
-### 6. Enable the Stripe gateway in settings
+### 6. Ative o gateway Stripe nas configurações
 
-?> Make sure the 'Stripe enabled' setting is set to `Enabled`.
+?> Certifique-se de que a configuração 'Stripe' esteja definida como 'Habilitado'.
 
 ![image](../../public/images/store_admin.png)
 
-### 7. Test your configuration
+### 7. Teste sua configuração
 
-Head over to the Jexactyl Storefront and click the 'Balance' tab. Once you're there, attempt to buy `x` credits with Stripe.
-If the page redirects to a Stripe purchase portal, congrats! You've successfully set up and configured Stripe.
+Vá até a Loja Jexactyl e clique na guia 'Carteira'. Quando estiver lá, tente comprar créditos `x` com o Stripe.
+Se a página redirecionar para um portal de compras Stripe, parabéns! Você configurou e configurou com sucesso o Stripe.
 
-?> If you run into issues while getting started with PayPal, let us know in the [Jexactyl Discord](https://discord.com/invite/qttGR4Z5Pk)
+?> Se você tiver problemas ao começar a usar o Stripe, informe-nos no [Jexactyl Discord](https://discord.com/invite/qttGR4Z5Pk)

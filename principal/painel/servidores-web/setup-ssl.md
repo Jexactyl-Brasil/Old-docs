@@ -1,29 +1,29 @@
-# Setup SSL with Certbot
+# Configurar SSL com Certbot
 
 ***
 
-### Download Certbot package
+### Baixe o pacote Certbot
 
-We'll start by downloading the `certbot` package which can be used to create SSL certificates
-for your website.
+Começaremos baixando o pacote `certbot` que pode ser usado para criar certificados SSL
+para o seu site.
 ```bash
 apt install -y certbot
 ```
 
 ***
 
-### Creating a certificate
+### Criando um certificado
 
-Assuming you have set your domain to point to your webserver IP, you're ready to create a certificate.
-Creating an SSL cert is as simple as running one of the commands below:
+Supondo que você tenha definido seu domínio para apontar para o IP do seu servidor web, você está pronto para criar um certificado.
+Criar um certificado SSL é tão simples quanto executar um dos comandos abaixo:
 
 ```bash
-# If you are using NGINX:
+# Se você estiver usando NGINX:
 certbot certonly --nginx -d example.com
 
-# If you are using Apache:
+# Se você estiver usando o Apache:
 certbot certonly --apache -d example.com
 
-# Use this if neither works. Make sure to stop your webserver first when using this method.
+# Use isso se nenhum dos dois funcionar. Certifique-se de parar seu servidor web primeiro ao usar este método.
 certbot certonly --standalone -d example.com
 ```

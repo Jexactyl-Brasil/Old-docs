@@ -1,12 +1,12 @@
-# Download Files
+# Download de arquivos
 
 ***
 
-### Create Directory
+### Criar diretório
 
-The first step in this process is to create the folder where the 
-panel will run and then move ourselves into that newly created folder. 
-Below is an example of how to perform this operation.
+O primeiro passo neste processo é criar a pasta onde o
+panel será executado e, em seguida, nos moveremos para a pasta recém-criada.
+Abaixo está um exemplo de como realizar esta operação.
 
 ```bash
 mkdir -p /var/www/jexactyl
@@ -15,14 +15,14 @@ cd /var/www/jexactyl
 
 ***
 
-### Download Panel
+### Baixar o Painel
 
-Once you have entered this directory, you can `curl` (download) the latest release to your machine.
-Then, you can extract it using the `tar` command and assign permissions using `chmod`. We assign permissions
-to the `storage/*` and `bootstrap/cache` directories in order to allow the site to cache objects and load faster.
+Depois de entrar neste diretório, você pode `curl` (baixar) a versão mais recente para sua máquina.
+Então, você pode extraí-lo usando o comando `tar` e atribuir permissões usando `chmod`. Atribuímos permissões
+para os diretórios `storage/*` e `bootstrap/cache` para permitir que o site armazene objetos em cache e carregue mais rápido.
 
 ```bash
-curl -Lo panel.tar.gz https://github.com/jexactyl/jexactyl/releases/latest/download/panel.tar.gz
+curl -Lo panel.tar.gz https://github.com/Ashu11-A/Jexactyl_PT-BR/releases/latest/download/panel.tar.gz
 tar -xzvf panel.tar.gz
 chmod -R 755 storage/* bootstrap/cache/
 ```

@@ -1,83 +1,83 @@
-# Updating Jexactyl
+# Atualizando Jexactyl
 
 ***
 
-Updating Jexactyl keeps your system stable, secure and allows
-your users/admins to experience new features quicker. Use
-the following guide below as a reference for updating Jexactyl.
+A atualização do Jexactyl mantém seu sistema estável, seguro e permite
+seus usuários/administradores experimentem novos recursos mais rapidamente. Usar
+o seguinte guia abaixo como referência para atualizar o Jexactyl.
 
 ?>
-Take a backup of your installation before continuing.
+Faça um backup de sua instalação antes de continuar.
 
 ***
 
-### Maintenance mode
+### Modo de manutenção
 
-Start by shutting down the Panel while we perform upgrades.
+Comece desligando o Painel enquanto realizamos as atualizações.
 
 ```bash
-cd /var/www/jexactyl # Replace 'jexactyl' with 'pterodactyl' if you have migrated
+cd /var/www/jexactyl # Substitua 'jexactyl' por 'pterodactyl' se você migrou
 php artisan down
 ```
 
-### Download new version
+### Baixe a nova versão
 
-Next, we'll use cURL to download the release archive from GitHub
-and extract it.
+Em seguida, usaremos cURL para baixar o arquivo de lançamento do GitHub
+e extraia-o.
 
 ```bash
-curl -L https://github.com/jexactyl/jexactyl/releases/latest/download/panel.tar.gz | tar -xzv
-chmod -R 755 storage/* bootstrap/cache # Set server permissions properly
+curl -L https://github.com/Ashu11-A/Jexactyl_PT-BR/releases/latest/download/panel.tar.gz | tar -xzv
+chmod -R 755 storage/* bootstrap/cache # Defina as permissões do servidor corretamente
 ```
 
-### Update Composer packages
+### Atualizar pacotes do Composer
 
-Due to Jexactyl staying up-to-date using the latest packages, you
-will need to update the Composer dependencies which allow Jexactyl
-to run properly on your machine.
+Devido ao Jexactyl se manter atualizado usando os pacotes mais recentes, você
+precisará atualizar as dependências do Composer que permitem que o Jexactyl
+para funcionar corretamente em sua máquina.
 
 ```bash
 composer install --no-dev --optimize-autoloader
 ```
 
-### Sync database changes
+### Sincronizar alterações no banco de dados
 
-You will need to migrate new database information into your
-database in order to use the latest Jexactyl features.
+Você precisará migrar as novas informações do banco de dados para o seu
+banco de dados para usar os recursos mais recentes do Jexactyl.
 
 ```bash
 php artisan migrate --seed --force
 ```
 
-### Set webserver permissions
+### Definir permissões do servidor web
 
-After changing the files, we must re-allow permissions for our
-webserver so that Jexactyl can be hosted and accessed properly.
+Depois de alterar os arquivos, devemos permitir novamente as permissões para nossos
+webserver para que o Jexactyl possa ser hospedado e acessado adequadamente.
 
 ```bash
 cd /var/www/jexactyl
 
-# ONLY RUN ONE OF THE FOLLOWING COMMANDS!
+# EXECUTE APENAS UM DOS SEGUINTES COMANDOS!
 
-# If using NGINX or Apache (not on CentOS):
+# Se estiver usando NGINX ou Apache (não no CentOS):
 chown -R www-data:www-data *
 
-# If using NGINX on CentOS:
+# Se estiver usando NGINX no CentOS:
 chown -R nginx:nginx *
 
-# If using Apache on CentOS
+# Se estiver usando o Apache no CentOS
 chown -R apache:apache *
 ```
 
-### Finalize update
+### Finalizar atualização
 
-As a final step, restart the queue worker and bring the Panel
-back online so that users can experience the very latest.
+Como etapa final, reinicie o trabalhador da fila e traga o painel
+novamente on-line para que os usuários possam experimentar o que há de mais recente.
 
 ```bash
 sudo systemctl restart panel.service # Replace 'panel' with 'pteroq' if you have migrated
 php artisan up
 ```
 
-?> Any issues? Please reach out to us on [Discord](https://discord.gg/qttGR4Z5Pk).
+?> Algum problema? Entre em contato conosco em [Discord](https://discord.gg/qttGR4Z5Pk).
 

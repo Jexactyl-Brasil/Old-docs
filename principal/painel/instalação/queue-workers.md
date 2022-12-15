@@ -1,11 +1,11 @@
-# Queue Workers
+# trabalhadores da fila
 
 ***
 
 ### Crontab
-The first thing we need to do is create a new cronjob that runs every minute to process specific Jexactyl tasks, such as session cleanup and sending scheduled tasks to daemons. 
+A primeira coisa que precisamos fazer é criar um novo cronjob que seja executado a cada minuto para processar tarefas específicas do Jexactyl, como limpeza de sessão e envio de tarefas agendadas para daemons.
 
-You'll want to open your crontab using `sudo crontab -e` and then paste the line below. **Nano is the easiest text editor to use, so press `1` when prompted to pick an editor.**
+Você vai querer abrir seu crontab usando `sudo crontab -e` e então colar a linha abaixo. **Nano é o editor de texto mais fácil de usar, então pressione `1` quando solicitado para escolher um editor.**
 
 ```bash
 * * * * * php /var/www/jexactyl/artisan schedule:run >> /dev/null 2>&1
@@ -14,9 +14,9 @@ You'll want to open your crontab using `sudo crontab -e` and then paste the line
 ***
 
 ### Systemd Queue Worker
-Next you need to create a new systemd worker to keep our queue process running in the background. This queue is responsible for sending emails and handling many other background tasks for Jexactyl.
+Em seguida, você precisa criar um novo trabalhador systemd para manter nosso processo de fila em execução em segundo plano. Essa fila é responsável por enviar e-mails e lidar com muitas outras tarefas em segundo plano para o Jexactyl.
 
-Create a file called `panel.service` in `/etc/systemd/system` with the contents below.
+Crie um arquivo chamado `panel.service` em `/etc/systemd/system` com o conteúdo abaixo.
 
 ```bash
 # Jexactyl Queue Worker File
@@ -38,8 +38,8 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-### Enable Queue Workers
-Finally, enable the jexactyl panel service we just made as well as the redis service to start and run on boot.
+### Ativar Queue Worker
+Por fim, ative o serviço do painel jexactyl que acabamos de criar, bem como o serviço redis, para iniciar e executar na inicialização.
 ```bash
 sudo systemctl enable --now panel.service
 sudo systemctl enable --now redis-server

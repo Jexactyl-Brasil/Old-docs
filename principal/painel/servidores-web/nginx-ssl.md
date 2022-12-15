@@ -1,26 +1,26 @@
-# Nginx with SSL Configuration
+# Nginx com configuração SSL
 
 ***
 
-### Remove default configuration
+### Remova a configuração padrão
 
-Firstly, let's remove the default NGINX configuration from your server.
+Em primeiro lugar, vamos remover a configuração NGINX padrão do seu servidor.
 ```bash
 rm /etc/nginx/sites-available/default; rm /etc/nginx/sites-enabled/default
 ```
 
-After we've done that, we can make our configuration for Jexactyl to run.
+Feito isso, podemos fazer nossa configuração para o Jexactyl rodar.
 
 ***
 
-### Create configuration file
+### Criar arquivo de configuração
 
-!> Make sure to replace `<domain>` with your own domain in this config file.
-Please also note that this configuration is for NGINX with SSL enabled.
-If you want to use Apache as a webserver, or do not want to use SSL, please refer
-to the other webserver instructions.
+!> Certifique-se de substituir `<domain>` pelo seu próprio domínio neste arquivo de configuração.
+Observe também que esta configuração é para NGINX com SSL ativado.
+Se você deseja usar o Apache como servidor web ou não deseja usar SSL, consulte
+às instruções do outro servidor web.
 
-Make a file called `panel.conf` in `/etc/nginx/sites-available` and insert the following:
+Faça um arquivo chamado `panel.conf` em `/etc/nginx/sites-available` e insira o seguinte:
 
 ```nginx
 server {
@@ -89,23 +89,23 @@ server {
 
 ***
 
-### Enabling Configuration
+### Ativando a Configuração
 
-Firstly, let's link the file we've made to the directory which NGINX uses for configs.
+Em primeiro lugar, vamos vincular o arquivo que criamos ao diretório que o NGINX usa para configurações.
 ```bash
 ln -s /etc/nginx/sites-available/panel.conf /etc/nginx/sites-enabled/panel.conf
 ```
 
-Then, we can test our nginx configuration to make sure it's working and valid:
+Em seguida, podemos testar nossa configuração nginx para garantir que esteja funcionando e seja válida:
 ```bash
 nginx -t
 ```
 
-Finally, we can restart the NGINX server process to make our Panel available on the domain.
+Por fim, podemos reiniciar o processo do servidor NGINX para disponibilizar nosso Painel no domínio.
 ```bash
 systemctl restart nginx
 ```
 
 ?>
-Congrats! Jexactyl is installed and should be functioning normally.
-If you encounter any issues, please let us know on our [Discord](https://discord.com/invite/qttGR4Z5Pk).
+Parabéns! Jexactyl está instalado e deve estar funcionando normalmente.
+Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.com/invite/qttGR4Z5Pk).

@@ -17,7 +17,7 @@
         * [Atualização Manual](principal/painel/atualizando/manual.md)
 
 * **Daemon (v1.x)**
-    * [instalaçãoation](principal/daemon/instalação.md)
+    * [instalação](principal/daemon/instalação.md)
 
 ***
 
@@ -29,7 +29,7 @@
     * [Registração Discord](principal/discord/configuração.md)
     * [Configurando PayPal](principal/pagamentos/paypal.md)
     * [Configurando Stripe](principal/pagamentos/stripe.md)
-    * [Configurando Referencias](principal/config/referencias.md)
+    * [Configurando Renovação](principal/config/renovação.md)
 
 * **Modificações**
     * [instalação do build tools](principal/build/instalação.md)

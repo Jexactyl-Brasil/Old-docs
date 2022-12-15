@@ -1,21 +1,21 @@
-# Install Build Tools
+# Instalar ferramentas de compilação
 
 ***
 
-This guide will inform you on how to get started with building and modifying Jexactyl.
+Este guia irá informá-lo sobre como começar a construir e modificar o Jexactyl.
 
 ***
 
-### Installing NodeJS and Yarn
+### Instalando o NodeJS e o Yarn
 
-Firstly, we'll need to install the `NodeJS` package and also add `Yarn` so we can build the Panel's frontend.
+Em primeiro lugar, precisaremos instalar o pacote 'NodeJS' e também adicionar o 'Yarn' para que possamos construir o front-end do Painel.
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 apt install -y nodejs
 ```
 
-Install `Yarn` and the dependencies needed for Jexactyl to be built.
+Instale o 'Yarn' e as dependências necessárias para que o Jexactyl seja construído.
 
 ```bash
 npm i -g yarn
@@ -25,4 +25,4 @@ yarn # Installs building dependencies.
 
 ***
 
-Next, refer to our [building](latest/build/building.md) guide on how to build the frontend.
+Em seguida, consulte nosso guia de [Build] (principal/build/construindo.md) sobre como construir o frontend.

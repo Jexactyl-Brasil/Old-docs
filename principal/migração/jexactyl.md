@@ -1,33 +1,33 @@
-# Migrate from Jexactyl v2.x
+# Migrar do Jexactyl v2.x
 
 ***
 
-Using this guide, you'll be able to upgrade to Jexactyl v3.x from v2.x.
+Usando este guia, você poderá atualizar para Jexactyl v3.x de v2.x.
 
 ***
 
-### Backup your Panel!
+### Faça backup do seu painel!
 
-While this migration is designed to be as simple as possible, we strongly advise you take a backup
-of all data, just to make sure nothing goes wrong during migration.
-You can do this by running the following commands:
+Embora esta migração seja projetada para ser o mais simples possível, recomendamos fortemente que você faça um backup
+de todos os dados, apenas para garantir que nada dê errado durante a migração.
+Você pode fazer isso executando os seguintes comandos:
 
 ```bash
-# Backs up the file structure and .env key.
+# Faz backup da estrutura do arquivo e da chave .env.
 cp -R /var/www/jexactyl /var/www/jexactyl-backup
 
-# Dump the MySQL database and save it in the backup dir.
+# Despeje o banco de dados MySQL e salve-o no diretório de backup.
 mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
 ```
 
 ***
 
-### Mark Panel as unavailable
+### Marcar painel como indisponível
 
-?> Make sure you're in the `/var/www/jexactyl` directory before continuing.
+?> Certifique-se de estar no diretório `/var/www/jexactyl` antes de continuar.
 
-While the migration takes place, we'll put the Panel into an 'unavailable' state so users cannot
-access the UI or API. We can do this by running the following:
+Enquanto a migração ocorre, colocaremos o painel em um estado "indisponível" para que os usuários não possam
+acessar a interface do usuário ou API. Podemos fazer isso executando o seguinte:
 
 ```bash
 php artisan down
@@ -35,20 +35,20 @@ php artisan down
 
 ***
 
-### Download Jexactyl
+### Baixar Jexactyl
 
-After your backup is complete and the Panel is offline, we'll download the Jexactyl files
-and overwrite the existing ones.
+Depois que seu backup for concluído e o Painel estiver off-line, faremos o download dos arquivos Jexactyl
+e sobrescrever os existentes.
 
 ```bash
-# Download the latest Jexactyl release using CURL.
-curl -L -o panel.tar.gz https://github.com/jexactyl/jexactyl/releases/latest/download/panel.tar.gz
+# Baixe a versão mais recente do Jexactyl usando CURL.
+curl -L -o panel.tar.gz https://github.com/Ashu11-A/Jexactyl_PT-BR/releases/latest/download/panel.tar.gz
 
-# Download the updated files and delete the archive file.
+# Baixe os arquivos atualizados e exclua o arquivo compactado.
 tar -xzvf panel.tar.gz && rm -f panel.tar.gz
 ```
 
-Then, set permissions so that the Panel's files can be accessed.
+Em seguida, configure as permissões para que os arquivos do Painel possam ser acessados.
 
 ```bash
 chmod -R 755 storage/* bootstrap/cache
@@ -56,13 +56,13 @@ chmod -R 755 storage/* bootstrap/cache
 
 ***
 
-### Update Composer dependencies
+### Atualizar as dependências do Composer
 
-After the new files have been downloaded, you'll need to update the PHP Composer dependencies
-that run this Panel. To do so, use `composer` to update the packages:
+Após o download dos novos arquivos, você precisará atualizar as dependências do PHP Composer
+que executam este Painel. Para fazer isso, use `composer` para atualizar os pacotes:
 
 ```bash
-# Temporary fix for errors.
+# Correção temporária de erros.
 composer require asbiin/laravel-webauthn
 
 composer install --no-dev --optimize-autoloader
@@ -70,9 +70,9 @@ composer install --no-dev --optimize-autoloader
 
 ***
 
-### Clear compiled UI cache
+### Limpe o cache da interface do usuário compilado
 
-You'll also want to clear the Panel's cache so that the new site will appear correctly.
+Você também deseja limpar o cache do painel para que o novo site apareça corretamente.
 
 ```bash
 php artisan optimize:clear
@@ -80,10 +80,10 @@ php artisan optimize:clear
 
 ***
 
-### Update database migrations
+### Atualizar migrações de banco de dados
 
-Jexactyl includes new features and functions that require you to migrate to your database.
-Luckily, this is a simple process which only involves running one command:
+Jexactyl inclui novos recursos e funções que exigem que você migre para seu banco de dados.
+Felizmente, este é um processo simples que envolve apenas a execução de um comando:
 
 ```bash
 php artisan migrate --seed --force
@@ -91,25 +91,25 @@ php artisan migrate --seed --force
 
 ***
 
-### Reassign webserver permissions
+### Reatribuir permissões do servidor web
 
-Due to the change in files on the machine, we'll need to allow Apache/NGINX to read these
-new files. You can do so by running the command specific to your webserver:
+Devido à mudança de arquivos na máquina, precisaremos permitir que o Apache/NGINX os leia
+novos arquivos. Você pode fazer isso executando o comando específico para o seu servidor web:
 
 ```bash
-# If using NGINX or Apache (not on CentOS):
+# Se estiver usando NGINX ou Apache (não no CentOS):
 chown -R www-data:www-data /var/www/jexactyl/*
 
-# If using NGINX on CentOS:
+# Se estiver usando NGINX no CentOS:
 chown -R nginx:nginx /var/www/jexactyl/*
 
-# If using Apache on CentOS
+# Se estiver usando o Apache no CentOS
 chown -R apache:apache /var/www/jexactyl/*
 ```
 
-### Restart Queue Workers
+### Reiniciar os trabalhadores da fila
 
-After every update you should restart the queue worker, to ensure that the new code is loaded and used.
+Após cada atualização, você deve reiniciar o trabalhador da fila, para garantir que o novo código seja carregado e usado.
 
 ```bash
 php artisan queue:restart
@@ -117,14 +117,14 @@ php artisan queue:restart
 
 ***
 
-### Mark Panel as online
+### Marcar painel como online
 
-Now that the migration is complete, you can bring the Panel back online and make it available to users.
+Agora que a migração foi concluída, você pode colocar o Painel novamente online e disponibilizá-lo aos usuários.
 
 ```bash
 php artisan up
 ```
 
 ?>
-Congrats! You have migrated to Jexactyl and everything should be functioning normally.
-If you encounter any issues, please let us know on our [Discord](https://discord.com/invite/qttGR4Z5Pk).
+Parabéns! Você migrou para Jexactyl e tudo deve estar funcionando normalmente.
+Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.com/invite/qttGR4Z5Pk).

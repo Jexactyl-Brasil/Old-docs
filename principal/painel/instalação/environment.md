@@ -1,11 +1,11 @@
-# Environment Setup
+# Configuração do ambiente
 
 ***
 
-### Create configuration file
-We'll need to start by copying over the default settings file, called `.env.example`. We'll want
-this to be called `.env`, so it's just a case of copying the file over in order to set up the Panel
-exactly how you want it.
+### Criar arquivo de configuração
+Precisamos começar copiando o arquivo de configurações padrão, chamado `.env.example`. vamos querer
+isso será chamado `.env`, então é só copiar o arquivo para configurar o Painel
+exatamente como você quer.
 
 ```bash
 cp .env.example .env
@@ -13,19 +13,19 @@ cp .env.example .env
 
 ***
 
-### Install Composer packages
-After this, we'll need to install Composer dependencies - which will allow the PHP code in our project
-(such as the backend and admin-side) to run properly.
+### Instalar pacotes do Composer
+Depois disso, precisaremos instalar as dependências do Composer - o que permitirá o código PHP em nosso projeto
+(como back-end e admin-side) para funcionar corretamente.
 
 ```bash
 composer install --no-dev --optimize-autoloader
 ```
 
-Finally, we'll generate a random token which will be the encryption/app key for our project.
+Por fim, geraremos um token aleatório que será a chave de criptografia/aplicativo do nosso projeto.
 
-!> This encryption key is used to store important data (such as API keys).
-Do NOT share this key with anyone - protect it like a password.
-If you lose this key, all data is impossible to recover.
+!> Esta chave de criptografia é usada para armazenar dados importantes (como chaves de API).
+NÃO compartilhe esta chave com ninguém - proteja-a como uma senha.
+Se você perder esta chave, todos os dados serão impossíveis de recuperar.
 
 ```bash
 php artisan key:generate --force
@@ -33,20 +33,20 @@ php artisan key:generate --force
 
 ***
 
-### Configure Panel Environment
-Jexactyl uses CLI commands to configure most of the base settings of the Panel.
-The following will allow you to set up general, database and mail settings.
+### Configurar ambiente do painel
+Jexactyl usa comandos CLI para definir a maioria das configurações básicas do Painel.
+O seguinte permitirá que você defina configurações gerais, de banco de dados e de correio.
 
 ```bash
 php artisan p:environment:setup
 php artisan p:environment:database
-php artisan p:environment:mail # Not required to run the Panel.
+php artisan p:environment:mail # Não é necessário executar o Painel.
 ```
 
 ***
 
-### Database Migration
-Now we need to set up all the base data for the Panel in the database you created earlier. The command below may take some time to run depending on your machine. Please **DO NOT exit the process** until it is completed! This command will set up the database tables and then add all the Nests & Eggs that power Jexactyl.
+### Migração de banco de dados
+Agora precisamos configurar todos os dados base para o Painel no banco de dados que você criou anteriormente. O comando abaixo pode levar algum tempo para ser executado dependendo da sua máquina. Por favor **NÃO saia do processo** até que esteja completo! Este comando configurará as tabelas do banco de dados e adicionará todos os Nests & Eggs que alimentam o Jexactyl.
 
 ```bash
 php artisan migrate --seed --force
@@ -54,26 +54,27 @@ php artisan migrate --seed --force
 
 ***
 
-### Create admin user
-To access the Panel for the first time, you'll need to make a user via the CLI - don't worry, you can 
-create users easily via the frontend! Here's a simple command which will take you through the steps of
-setting up the initial admin account:
+### Criar usuário administrador
+Para acessar o Painel pela primeira vez, você precisará criar um usuário via CLI - não se preocupe, você pode
+crie usuários facilmente através do frontend! Aqui está um comando simples que o guiará pelas etapas de
+configurando a conta de administrador inicial:
 ```bash
 php artisan p:user:make
 ```
 
 ***
 
-### Assign Permissions
-In order for the webserver you're using to access the Panel files, we'll need to assign it permissions
-with the `chown` command. Here's how to do this for all types of webservers:
+### Atribuir permissões
+Para que o servidor web que você está usando acesse os arquivos do Painel, precisamos atribuir permissões a ele
+com o comando `chown`. Veja como fazer isso para todos os tipos de servidores da Web:
+
 ```bash
-# If using NGINX or Apache (not on CentOS):
+# Se estiver usando NGINX ou Apache (não no CentOS):
 chown -R www-data:www-data /var/www/jexactyl/*
 
-# If using NGINX on CentOS:
+# Se estiver usando NGINX no CentOS:
 chown -R nginx:nginx /var/www/jexactyl/*
 
-# If using Apache on CentOS:
+# Se estiver usando o Apache no CentOS:
 chown -R apache:apache /var/www/jexactyl/*
 ```
