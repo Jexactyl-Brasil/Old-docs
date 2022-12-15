@@ -20,7 +20,7 @@ Se você é um usuário mais experiente que deseja editar o Painel, confira noss
 
 ## Screenshots
 ![Dashboard](https://user-images.githubusercontent.com/30575805/207936499-25645fff-cdc2-476c-b626-fd75813fbc52.png)
-![Storefront](https://cdn.discordapp.com/attachments/1034607211630051358/1034607643744014336/unknown.png)
+![Storefront](https://user-images.githubusercontent.com/30575805/207936544-7ee143cd-e0e6-4076-929a-cfc97054b33e.png)
 ![Server Create](https://cdn.discordapp.com/attachments/1034607211630051358/1034607749536956466/unknown.png)
 ![Server Console](https://cdn.discordapp.com/attachments/927394141158133760/1034607072895053845/unknown.png)
 ![Admin Default](public/images/new/admin-default.png)
