@@ -79,5 +79,5 @@ sudo systemctl restart panel.service # Replace 'panel' with 'pteroq' if you have
 php artisan up
 ```
 
-?> Algum problema? Entre em contato conosco em [Discord](https://discord.gg/qttGR4Z5Pk).
+?> Algum problema? Entre em contato conosco em [Discord](discord.gg/8r7n7mU33R).
 
