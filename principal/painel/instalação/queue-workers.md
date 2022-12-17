@@ -16,7 +16,7 @@ Você vai querer abrir seu crontab usando `sudo crontab -e` e então colar a lin
 ### Systemd Queue Worker
 Em seguida, você precisa criar um novo trabalhador systemd para manter nosso processo de fila em execução em segundo plano. Essa fila é responsável por enviar e-mails e lidar com muitas outras tarefas em segundo plano para o Jexactyl.
 
-Crie um arquivo chamado `panel.service` em `/etc/systemd/system` com o conteúdo abaixo.
+Crie um arquivo chamado `painel.service` em `/etc/systemd/system` com o conteúdo abaixo.
 
 ```bash
 # Jexactyl Queue Worker File
@@ -41,6 +41,6 @@ WantedBy=multi-user.target
 ### Ativar Queue Worker
 Por fim, ative o serviço do painel jexactyl que acabamos de criar, bem como o serviço redis, para iniciar e executar na inicialização.
 ```bash
-sudo systemctl enable --now panel.service
+sudo systemctl enable --now painel.service
 sudo systemctl enable --now redis-server
 ```
