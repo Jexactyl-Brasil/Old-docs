@@ -25,4 +25,4 @@ yarn # Installs building dependencies.
 
 ***
 
-Em seguida, consulte nosso guia de [Build] (principal/build/construindo.md) sobre como construir o frontend.
+Em seguida, consulte nosso guia de [Build](principal/build/construindo.md) sobre como construir o frontend.
