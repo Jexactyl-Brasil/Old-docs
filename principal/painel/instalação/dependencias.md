@@ -2,7 +2,6 @@
 Você precisará instalar as seguintes dependências para executar e usar o Jexactyl:
 
 
-?>
 
 PHP `8.1` com as extensões:
 - `cli`
