@@ -1,4 +1,4 @@
-# Configurar Discord para Jexactyl
+# Configurar Discord 0Auth para Jexactyl
 
 ***
 
@@ -39,4 +39,4 @@ etapa 3 novamente e certifique-se de que suas configurações estejam 100% corre
 
 ?>
 parabéns! O Jexactyl Discord Auth deve estar funcionando normalmente.
-Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.com/invite/qttGR4Z5Pk).
+Se você encontrar algum problema, informe-nos em nosso [Discord](discord.gg/8r7n7mU33R).
