@@ -108,4 +108,4 @@ systemctl restart nginx
 
 ?>
 Parabéns! Jexactyl está instalado e deve estar funcionando normalmente.
-Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.com/invite/qttGR4Z5Pk).
+Se você encontrar algum problema, informe-nos em nosso [Discord](discord.gg/8r7n7mU33R).
