@@ -15,9 +15,9 @@ para coisas como implantações de vários clusters e bancos de dados de balance
 ```sql
 mysql -u root -p
 
-# Lembre-se de alterar "suaSenha" abaixo para ser uma senha exclusiva
-CREATE USER 'jexactyl'@'127.0.0.1' IDENTIFIED BY 'suasenha';
-CREATE DATABASE panel;
-GRANT ALL PRIVILEGES ON panel.* TO 'jexactyl'@'127.0.0.1' WITH GRANT OPTION;
+# Lembre-se de alterar "SuaSenha" abaixo para ser uma senha exclusiva
+CREATE USER 'jexactyl'@'127.0.0.1' IDENTIFIED BY 'SuaSenha';
+CREATE DATABASE painel;
+GRANT ALL PRIVILEGES ON painel.* TO 'jexactyl'@'127.0.0.1' WITH GRANT OPTION;
 exit
 ```
