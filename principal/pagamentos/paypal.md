@@ -55,4 +55,4 @@ nano .env
 Vá até a Jexactyl Storefront e clique na guia 'Carteira'. Quando estiver lá, tente comprar créditos `x` com o PayPal.
 Se a página redirecionar para um portal de compras do PayPal, parabéns! Você configurou e configurou com sucesso o PayPal.
 
-?> Se você tiver problemas ao começar a usar o PayPal, informe-nos no [Jexactyl Discord](https://discord.com/invite/qttGR4Z5Pk)
+?> Se você tiver problemas ao começar a usar o PayPal, informe-nos no nosso [Discord](discord.gg/8r7n7mU33R)
