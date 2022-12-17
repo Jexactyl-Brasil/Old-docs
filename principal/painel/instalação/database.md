@@ -17,7 +17,7 @@ mysql -u root -p
 
 # Lembre-se de alterar "SuaSenha" abaixo para ser uma senha exclusiva
 CREATE USER 'jexactyl'@'127.0.0.1' IDENTIFIED BY 'SuaSenha';
-CREATE DATABASE painel;
+CREATE DATABASE panel;
 GRANT ALL PRIVILEGES ON panel.* TO 'jexactyl'@'127.0.0.1' WITH GRANT OPTION;
 exit
 ```
