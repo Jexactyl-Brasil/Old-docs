@@ -3,4 +3,4 @@
 > A documentação para Jexactyl agora portada para o portugues.
 
 [Vamos Começar](/inicio.md)
-[Discord](https://discord.com/invite/qttGR4Z5Pk)
+[Discord](docs.jexactylbrasil.ml)
