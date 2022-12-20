@@ -23,16 +23,18 @@ Você é responsável por determinar quais pacotes podem ser necessários nesses
 alta probabilidade de que as novas versões dos sistemas operacionais suportados abaixo funcionem muito bem, você não está restrito a
 apenas as versões listadas abaixo.
 
-| Operating System | Version |     Supported      | Notes                                                                          |
-|------------------|---------|:------------------:|--------------------------------------------------------------------------------|
-| **Ubuntu**       | 18.04   | :white_check_mark: | Documentação escrita assumindo o Ubuntu 18.04 como o sistema operacional base. |
-|                  | 20.04   | :white_check_mark: |                                                                                |
-|                  | 22.04   | :white_check_mark: |                                                                                |
-| **CentOS**       | 7       | :white_check_mark: |                                                                                |
-|                  | 8       | :white_check_mark: | Observe que o CentOS 8 é EOL. Use Rocky ou Alma Linux.                         |
-| **Debian**       | 10      | :white_check_mark: |                                                                                |
-|                  | 11      | :white_check_mark: |                                                                                |
-| **Windows**      | All     |        :x:         | Este software não será executado em ambientes Windows.                         |
+| Operating System | Version |     Supported      | Notes                                                                           |
+|------------------|---------|:------------------:|---------------------------------------------------------------------------------|
+| **Ubuntu**       | 18.04   | :white_check_mark: | Documentação escrita assumindo o Ubuntu 18.04 como o sistema operacional base.  |
+|                  | 20.04   | :white_check_mark: |                                                                                 |
+|                  | 22.04   | :white_check_mark: |                                                                                 |
+|                  | 22.04.1 | :white_check_mark: |                                                                                 |
+|                  | 22.10   |        :x:         | Futuramente suportavel, na atualidade algumas dependencias não forão satisfeitas|
+| **CentOS**       | 7       | :white_check_mark: |                                                                                 |
+|                  | 8       | :white_check_mark: | Observe que o CentOS 8 é EOL. Use Rocky ou Alma Linux.                          |
+| **Debian**       | 10      | :white_check_mark: |                                                                                 |
+|                  | 11      | :white_check_mark: |                                                                                 |
+| **Windows**      | Todos   |        :x:         | Este software não será executado em ambientes Windows.                          |
 
 ## Requisitos do Sistema
 
