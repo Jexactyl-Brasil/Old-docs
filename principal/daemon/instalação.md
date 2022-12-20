@@ -1,112 +1,112 @@
-# # Instalação do Daemon
+## Instalação do Daemon
+
+!> Aviso dos tradutores.
+
+- Este método de instalação foi tirado da documentação oficial do pterodactyl, para permitir os usuários terem a tradução completa tanto do painel, quanto das wings, caso queira usar a documentação oficial e original(está em Ingles) click [Aqui](https://pterodactyl.io/wings/1.0/installing.html).
 
 ***
 
-# Installing Wings
+# Instalando o Wings
 
-Wings is the next generation server control plane from Pterodactyl. It has been rebuilt from the
-ground up using Go and lessons learned from our first Nodejs Daemon.
+Wings é o daemon de controle de servidor de próxima geração da Pterodactyl. Foi reconstruído a partir do
+Ground Up usando o Go e as lições aprendidas com o nosso primeiro Nodejs Daemon.
 
-::: warning
-You should only install Wings if you are running **Pterodactyl 1.x**. Do not install this software
-for previous versions of Pterodactyl.
-:::
+!>Aviso:Você só deve instalar o Wings se estiver executando **Pterodactyl 1.x**. Não instale este software
+para versões anteriores de Pterodactyl.
 
-## Supported Systems
 
-The following is a list of supported operating systems. Please be aware that this is not an exhaustive list,
-there is a high probability that you can run the software on other Linux distributions without much effort.
-You are responsible for determining which packages may be necessary on those systems. There is also a very
-high probability that new releases of the supported OSes below will work just fine, you are not restricted to
-only the versions listed below.
+## Sistemas suportados
 
-| Operating System | Version |     Supported      | Notes                                                       |
-|------------------|---------|:------------------:|-------------------------------------------------------------|
-| **Ubuntu**       | 18.04   | :white_check_mark: | Documentation written assuming Ubuntu 18.04 as the base OS. |
-|                  | 20.04   | :white_check_mark: |                                                             |
-|                  | 22.04   | :white_check_mark: |                                                             |
-| **CentOS**       | 7       | :white_check_mark: |                                                             |
-|                  | 8       | :white_check_mark: | Note that CentOS 8 is EOL. Use Rocky or Alma Linux.         |
-| **Debian**       | 10      | :white_check_mark: |                                                             |
-|                  | 11      | :white_check_mark: |                                                             |
-| **Windows**      | All     |        :x:         | This software will not run in Windows environments.         |
+A seguir está uma lista de sistemas operacionais suportados. Por favor, esteja ciente de que esta não é uma lista exaustiva,
+há uma alta probabilidade de que você pode executar o software em outras distribuições Linux sem muito esforço.
+Você é responsável por determinar quais pacotes podem ser necessários nesses sistemas. Há também um muito
+alta probabilidade de que as novas versões dos sistemas operacionais suportados abaixo funcionem muito bem, você não está restrito a
+apenas as versões listadas abaixo.
 
-## System Requirements
+| Operating System | Version |     Supported      | Notes                                                                          |
+|------------------|---------|:------------------:|--------------------------------------------------------------------------------|
+| **Ubuntu**       | 18.04   | :white_check_mark: | Documentação escrita assumindo o Ubuntu 18.04 como o sistema operacional base. |
+|                  | 20.04   | :white_check_mark: |                                                                                |
+|                  | 22.04   | :white_check_mark: |                                                                                |
+| **CentOS**       | 7       | :white_check_mark: |                                                                                |
+|                  | 8       | :white_check_mark: | Observe que o CentOS 8 é EOL. Use Rocky ou Alma Linux.                         |
+| **Debian**       | 10      | :white_check_mark: |                                                                                |
+|                  | 11      | :white_check_mark: |                                                                                |
+| **Windows**      | All     |        :x:         | Este software não será executado em ambientes Windows.                         |
 
-To run Wings, you will need a Linux system capable of running Docker containers. Most VPS and almost all
-dedicated servers should be capable of running Docker, but there are edge cases.
+## Requisitos do Sistema
 
-When your provider uses `Virtuozzo`, `OpenVZ` (or `OVZ`), or `LXC` virtualization, you will most likely be unable to
-run Wings. Some providers have made the necessary changes for nested virtualization to support Docker. Ask your provider's support team to make sure. KVM is guaranteed to work.
+Para executar o Wings, você precisará de um sistema Linux capaz de executar contêineres do Docker. A maioria dos VPS e quase todos
+servidores dedicados devem ser capazes de executar o Docker, mas há casos de borda.
 
-The easiest way to check is to type `systemd-detect-virt`.
-If the result doesn't contain `OpenVZ` or`LXC`, it should be fine. The result of `none` will appear when running dedicated hardware without any virtualization.
+Quando seu provedor usa a virtualização `Virtuozzo`, `OpenVZ` (ou `OVZ`) ou `LXC`, você provavelmente não poderá
+corra Asas. Alguns provedores fizeram as alterações necessárias para a virtualização aninhada para oferecer suporte ao Docker. Peça à equipe de suporte do seu provedor para se certificar. KVM é garantido para trabalhar.
 
-Should that not work for some reason, or you're still unsure, you can also run the command below.
+A maneira mais fácil de verificar é digitar `systemd-detect-virt`.
+Se o resultado não contiver `OpenVZ` ou `LXC`, tudo bem. O resultado de `nenhum` aparecerá ao executar hardware dedicado sem qualquer virtualização.
+
+Se isso não funcionar por algum motivo, ou você ainda não tiver certeza, você também pode executar o comando abaixo.
 
 ```bash
-dane@pterodactyl:~$ sudo dmidecode -s system-manufacturer
+sudo dmidecode -s system-manufacturer
 VMware, Inc.
 ```
 
-## Dependencies
+## Dependências
 
 - curl
 - Docker
 
-### Installing Docker
+### Instalando o Docker
 
-For a quick install of Docker CE, you can execute the command below:
+Para uma instalação rápida do Docker CE, você pode executar o comando abaixo:
 
 ```bash
 curl -sSL https://get.docker.com/ | CHANNEL=stable bash
 ```
 
-If you would rather do a manual installation, please reference the official Docker documentation for how to install Docker CE on your server. Some quick links
-are listed below for commonly supported systems.
+Se você preferir fazer uma instalação manual, consulte a documentação oficial do Docker para saber como instalar o Docker CE em seu servidor. Alguns links rápidos
+estão listados abaixo para sistemas comumente suportados.
 
 - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)
 - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce)
 - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/#install-docker-ce)
 
-::: warning Check your Kernel
-Please be aware that some hosts install a modified kernel that does not support important docker features. Please
-check your kernel by running `uname -r`. If your kernel ends in `-xxxx-grs-ipv6-64` or `-xxxx-mod-std-ipv6-64` you're
-probably using a non-supported kernel. Check our [Kernel Modifications](../../../daemon/0.6/kernel_modifications.md) guide for details.
-:::
+!>Aviso:Verifique seu Kernel
+Lembre-se de que alguns hosts instalam um kernel modificado que não oferece suporte a recursos importantes do docker. Por favor
+verifique seu kernel executando `uname -r`. Se o seu kernel termina em `-xxxx-grs-ipv6-64` ou `-xxxx-mod-std-ipv6-64` você está
+provavelmente usando um kernel não suportado. Verifique nossas [Modificações do Kernel](principal/daemon/kernel-Modificado.md) guia para mais detalhes.
 
-#### Start Docker on Boot
+#### Iniciar o Docker na inicialização
 
-If you are on an operating system with systemd (Ubuntu 16+, Debian 8+, CentOS 7+) run the command below to have Docker start when you boot your machine.
+Se você estiver em um sistema operacional com systemd (Ubuntu 16+, Debian 8+, CentOS 7+) execute o comando abaixo para que o Docker inicie quando você inicializar sua máquina.
 
 ```bash
 systemctl enable --now docker
 ```
 
-#### Enabling Swap
+#### Habilitando Swap
 
-On most systems, Docker will be unable to setup swap space by default. You can confirm this by running `docker info` and looking for the output of `WARNING: No swap limit support` near the bottom.
+Na maioria dos sistemas, o Docker não poderá configurar o espaço de permuta por padrão. Você pode confirmar isso executando `docker info` e procurando a saída de `AVISO: Sem suporte a limite de swap` perto da parte inferior.
 
-Enabling swap is entirely optional, but we recommended doing it if you will be hosting for others and to prevent OOM errors.
+Habilitar a troca é totalmente opcional, mas recomendamos fazê-lo se você estiver hospedando para outras pessoas e para evitar erros de OOM.
 
-To enable swap, open `/etc/default/grub` as a root user and find the line starting with `GRUB_CMDLINE_LINUX_DEFAULT`. Make
-sure the line includes `swapaccount=1` somewhere inside the double-quotes.
+Para habilitar o Swap, abra `/etc/default/grub` como um usuário root e encontre a linha começando com `GRUB_CMDLINE_LINUX_DEFAULT`. Fazer
+certeza de que a linha inclui `swapaccount=1` em algum lugar dentro das aspas duplas.
 
-After that, run `sudo update-grub` followed by `sudo reboot` to restart the server and have swap enabled.
-Below is an example of what the line should look like, _do not copy this line verbatim. It often has additional OS-specific parameters._
+Depois disso, execute `sudo update-grub` seguido de `sudo reboot` para reiniciar o servidor e ter o swap habilitada.
+Abaixo está um exemplo de como a linha deve ser, _do não copie essa linha textualmente. Muitas vezes, ele tem parameters._ adicionais específicos do sistema operacional
 
 ```text
 GRUB_CMDLINE_LINUX_DEFAULT="swapaccount=1"
 ```
 
-::: tip GRUB Configuration
-Some Linux distros may ignore `GRUB_CMDLINE_LINUX_DEFAULT`. Therefore you might have to use `GRUB_CMDLINE_LINUX` instead should the default one not work for you.
-:::
+?>Dica:Configuração do GRUB,algumas distribuições Linux podem ignorar `GRUB_CMDLINE_LINUX_DEFAULT`. Portanto, você pode ter que usar "GRUB_CMDLINE_LINUX" em vez disso, caso o padrão não funcione para você.
 
-## Installing Wings
+## Instalando o Wings
 
-The first step for installing Wings is to ensure we have the required directory structure setup. To do so,
-run the commands below, which will create the base directory and download the wings executable.
+O primeiro passo para instalar o Wings é garantir que tenhamos a configuração de estrutura de diretórios necessária. Para isso,
+execute os comandos abaixo, que criarão o diretório base e baixarão o executável wings.
 
 ```bash
 mkdir -p /etc/pterodactyl
@@ -114,40 +114,37 @@ curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/l
 chmod u+x /usr/local/bin/wings
 ```
 
-::: warning OVH/SYS Servers
-If you are using a server provided by OVH or SoYouStart please be aware that your main drive space is probably allocated to
-`/home`, and not `/` by default. Please consider using `/home/daemon-data` for server data. This can be easily
-set when creating the node.
-:::
+!>Aviso:Servidores OVH/SYS.Se estiver a utilizar um servidor fornecido pela OVH ou SoYouStart, esteja ciente de que o seu espaço em disco principal está provavelmente atribuído a
+`/home`, e não `/` por padrão. Por favor, considere o uso de `/home/daemon-data` para dados do servidor. Isso pode ser facilmente
+ao criar o node.
 
-## Configure
 
-Once you have installed Wings and the required components, the next step is to create a node on your installed Panel. Go to your Panel administrative view, select Nodes from the sidebar, and on the right side click Create New button.
+## Configurar
 
-After you have created a node, click on it and there will be a tab called Configuration. Copy the code block content, paste it into a new file called `config.yml` in `/etc/pterodactyl` and save it.
+Depois de instalar o Wings e os componentes necessários, o próximo passo é criar um nó no painel instalado. Vá para a visualização administrativa do Painel, selecione Node na barra lateral e, no lado direito, clique no botão Criar Novo.
 
-Alternatively, you can click on the Generate Token button, copy the bash command and paste it into your terminal.
+Depois de criar um nodes, clique nele e haverá uma guia chamada Configuração. Copie o conteúdo do bloco de código, cole-o em um novo arquivo chamado `config.yml` em `/etc/pterodactyl` e salve-o.
 
-![example image of wings configuration](./../../.vuepress/public/wings_configuration_example.png)
+Alternativamente, você pode clicar no botão Gerar Token, copiar o comando bash e colá-lo em seu terminal(em alguns casos se isso não funcionar use o metodo normal).
 
-::: warning
-When your Panel is using SSL, the Wings must also have one created for its FQDN. See [Creating SSL Certificates](/tutorials/creating_ssl_certificates.html) documentation page for how to create these certificates before continuing.
-:::
+![imagem de exemplo de configuração de Wings](./../../.vuepress/public/wings_configuration_example.png)
 
-### Starting Wings
+!>Aviso:Quando seu Painel estiver usando SSL, as Wings também devem ter uma criada para seu FQDN. Consulte a página de documentação [Configurar SSL](principal/painel/servidores-web/setup-ssl) para saber como criar esses certificados antes de continuar.
 
-To start Wings, simply run the command below, which will start it in a debug mode. Once you confirmed that it is running without errors, use `CTRL+C` to terminate the process and daemonize it by following the instructions below. Depending on your server's internet connection pulling and starting Wings for the first time may take a few minutes.
+### Iniciando Wings
+
+Para iniciar o Wings, basta executar o comando abaixo, que o iniciará em um modo de depuração. Depois de confirmar que ele está sendo executado sem erros, use `CTRL + C` para encerrar o processo e daemonizá-lo seguindo as instruções abaixo. Dependendo da conexão de internet do seu servidor, puxar e iniciar o Wings pela primeira vez pode levar alguns minutos.
 
 ```bash
 sudo wings --debug
 ```
 
-You may optionally add the `--debug` flag to run Wings in debug mode.
+Opcionalmente, você pode adicionar o sinalizador `--debug` para executar o Wings no modo de depuração.
 
-### Daemonizing (using systemd)
+### Daemonização (usando systemd)
 
-Running Wings in the background is a simple task, just make sure that it runs without errors before doing
-this. Place the contents below in a file called `wings.service` in the `/etc/systemd/system` directory.
+Executar Wings em segundo plano é uma tarefa simples, apenas certifique-se de que ele é executado sem erros antes de fazer
+este. Coloque o conteúdo abaixo em um arquivo chamado `wings.service` no diretório `/etc/systemd/system`.
 
 ```text
 [Unit]
@@ -171,16 +168,16 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-Then, run the commands below to reload systemd and start Wings.
+Em seguida, execute os comandos abaixo para recarregar systemd e iniciar o Wings.
 
 ```bash
 systemctl enable --now wings
 ```
 
-### Node Allocations
+### Alocações de Nodes
 
-Allocation is a combination of IP and Port that you can assign to a server. Each created server must have at least one allocation. The allocation would be the IP address of your network interface. In some cases, such as when behind NAT, it would be the internal IP. To create new allocations go to Nodes > your node > Allocation.
+A alocação é uma combinação de IP e Porta que você pode atribuir a um servidor. Cada servidor criado deve ter pelo menos uma alocação. A alocação seria o endereço IP da sua interface de rede. Em alguns casos, como quando atrás do NAT, seria o IP interno. Para criar novas alocações, vá para Nodes > seu node > Alocação.
 
-![example image of node allocations](../../.vuepress/public/node_allocations.png)
+![imagem de exemplo de alocações de node](../../.vuepress/public/node_allocations.png)
 
-Type `hostname -I | awk '{print $1}'` to find the IP to be used for the allocation. Alternatively, you can type `ip addr | grep "inet "` to see all your available interfaces and IP addresses. Do not use 127.0.0.1 for allocations.
+Digite `hostname -I | awk '{print $1}'` para encontrar o IP a ser usado para a alocação. Alternativamente, você pode digitar `ip addr | grep "inet "` para ver todas as suas interfaces disponíveis e endereços IP. Não use 127.0.0.1 para alocações.
