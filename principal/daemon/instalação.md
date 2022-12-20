@@ -75,7 +75,7 @@ estão listados abaixo para sistemas comumente suportados.
 !>Aviso:Verifique seu Kernel
 Lembre-se de que alguns hosts instalam um kernel modificado que não oferece suporte a recursos importantes do docker. Por favor
 verifique seu kernel executando `uname -r`. Se o seu kernel termina em `-xxxx-grs-ipv6-64` ou `-xxxx-mod-std-ipv6-64` você está
-provavelmente usando um kernel não suportado. Verifique nossas [Modificações do Kernel](principal/daemon/kernel-Modificado.md) guia para mais detalhes.
+provavelmente usando um kernel não suportado. Verifique nossas [Modificações do Kernel(Em Ingles atualmente)](https://pterodactyl.io/daemon/0.6/kernel_modifications.html) guia para mais detalhes.
 
 #### Iniciar o Docker na inicialização
 
