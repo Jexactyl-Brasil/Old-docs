@@ -1,6 +1,7 @@
 # Bem-vindo ao Jexactyl!
 
 >!Aviso dos Tradutores.
+
 >Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um database Novo e Sem arquivos para melhor funcionamento.
 
 Jexactyl é um york moderno, rápido e rico em recursos do [Painel Pterodactyl](https://github.com/pterodactyl/panel).
