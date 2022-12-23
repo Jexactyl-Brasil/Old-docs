@@ -1,5 +1,8 @@
 # Migrar do Jexactyl v2.x
 
+>!Aviso dos Tradutores.
+>Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um database Novo e Sem arquivos para melhor funcionamento.
+
 ***
 
 Usando este guia, você poderá atualizar para Jexactyl v3.x de v2.x.
