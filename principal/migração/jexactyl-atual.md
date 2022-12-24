@@ -2,7 +2,7 @@
 
 !>Aviso dos Tradutores.
 
->Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um database Novo e Sem arquivos para melhor funcionamento.
+>Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um `database Novo` e Sem arquivos para melhor funcionamento.
 
 ***
 
@@ -10,15 +10,14 @@ Usando este guia, você poderá trocar o Jexactyl para o Jexactyl-Brasil.
 
 ***
 
-### Faça backup do seu painel!
+### Crie um Backup do seu painel!
 
-Embora esta migração seja projetada para ser o mais simples possível, recomendamos fortemente que você faça um backup
-de todos os dados, apenas para garantir que nada dê errado durante a migração.
+Diferente da migração do jexactyl na qual apenas adiciona novos arquivos, o Jexactyl-Brasil modifica tudo desde sua raiz e por isso não é possivel usar os arquivos originais da Jexactyl, porém não se preocupe, este processo é simples e segue a mesma ideia de um backup.
 Você pode fazer isso executando os seguintes comandos:
 
 ```bash
-# Faz backup da estrutura do arquivo e da chave .env.
-cp -R /var/www/jexactyl /var/www/jexactyl-backup
+# renomear a estrutura original da jexactyl.
+mv /var/www/jexactyl /var/www/jexactyl-backup
 
 # Despeje o banco de dados MySQL e salve-o no diretório de backup.
 mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
@@ -26,23 +25,21 @@ mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
 
 ***
 
-### Marcar painel como indisponível
+### Baixar e criar diretório do Jexactyl Brasil
 
-?> Certifique-se de estar no diretório `/var/www/jexactyl` antes de continuar.
+## Criando novo diretório e copiando .env
 
-Enquanto a migração ocorre, colocaremos o painel em um estado "indisponível" para que os usuários não possam
-acessar a interface do usuário ou API. Podemos fazer isso executando o seguinte:
+Após o renomeamendo da pasta, será necessário criar uma nova pasta e copiar o `.env` onde o Jexactyl-Brasil irá se instalar.
 
 ```bash
-php artisan down
+# Criar e entrar na pasta onde novo diretório do jexactyl-brasil.
+mkdir /var/www/jexactyl
+cd /var/www/jexactyl
+
+# Copiar .env 
+cp /var/www/jexactyl-backup/.env /var/www/jexactyl/
 ```
-
-***
-
-### Baixar Jexactyl Brasil
-
-Depois que seu backup for concluído e o Painel estiver off-line, faremos o download dos arquivos Jexactyl-Brasil 
-e sobrescrever os existentes.
+Depois do renomear,criar o novo diretório e copiar o `.env`,Faremos o download dos arquivos Jexactyl-Brasil e sobrescrever os existentes.
 
 ```bash
 # Baixe a versão mais recente do Jexactyl-Brasil usando CURL.
@@ -60,26 +57,13 @@ chmod -R 755 storage/* bootstrap/cache
 
 ***
 
-### Atualizar as dependências do Composer
+### Baixar as dependências do Composer
 
 Após o download dos novos arquivos, você precisará atualizar as dependências do PHP Composer
 que executam este Painel. Para fazer isso, use `composer` para atualizar os pacotes:
 
 ```bash
-# Correção temporária de erros.
-composer require asbiin/laravel-webauthn
-
 composer install --no-dev --optimize-autoloader
-```
-
-***
-
-### Limpe o cache da interface do usuário compilado
-
-Você também deseja limpar o cache do painel para que o novo site apareça corretamente.
-
-```bash
-php artisan optimize:clear
 ```
 
 ***
@@ -111,7 +95,7 @@ chown -R nginx:nginx /var/www/jexactyl/*
 chown -R apache:apache /var/www/jexactyl/*
 ```
 
-### Reiniciar os trabalhadores da fila
+### Reiniciar os trabalhadores da fila(Pode não ser necessário)
 
 Após cada atualização, você deve reiniciar o trabalhador da fila, para garantir que o novo código seja carregado e usado.
 
@@ -121,7 +105,7 @@ php artisan queue:restart
 
 ***
 
-### Marcar painel como online
+### Marcar painel como online(Pode não ser necessário)
 
 Agora que a migração foi concluída, você pode colocar o Painel novamente online e disponibilizá-lo aos usuários.
 
