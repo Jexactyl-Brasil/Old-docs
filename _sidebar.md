@@ -22,7 +22,7 @@
 ***
 
 * **Migração**
-    * [de Jexactyl Original](principal/migração/jexactyl-Atual.md)
+    * [de Jexactyl Original](principal/migração/jexactyl-atual.md)
     * [de Pterodactyl (v1.x)](principal/migração/pterodactyl.md)
     * [de Jexactyl (v2.x)](principal/migração/jexactyl.md)
 
