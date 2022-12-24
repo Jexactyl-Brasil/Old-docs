@@ -25,9 +25,9 @@ mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
 
 ***
 
-### Baixar e criar diretório do Jexactyl Brasil
+## Baixar e criar diretório do Jexactyl Brasil
 
-## Criando novo diretório e copiando .env
+### Criando novo diretório e copiando .env
 
 Após o renomeamendo da pasta, será necessário criar uma nova pasta e copiar o `.env` onde o Jexactyl-Brasil irá se instalar.
 
