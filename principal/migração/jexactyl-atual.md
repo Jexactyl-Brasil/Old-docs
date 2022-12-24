@@ -39,7 +39,7 @@ cd /var/www/jexactyl
 # Copiar .env 
 cp /var/www/jexactyl-backup/.env /var/www/jexactyl/
 ```
-Depois do renomear,criar o novo diretório e copiar o `.env`,Faremos o download dos arquivos Jexactyl-Brasil e sobrescrever os existentes.
+Depois do renomear, criar o novo diretório e copiar o `.env`,Faremos o download dos arquivos Jexactyl-Brasil e sobrescrever os existentes.
 
 ```bash
 # Baixe a versão mais recente do Jexactyl-Brasil usando CURL.
