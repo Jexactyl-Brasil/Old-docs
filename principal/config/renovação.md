@@ -15,4 +15,4 @@ Em seguida, cole esta linha e saia depois:
 
 ?>
 Parabéns! As renovações foram configuradas e devem estar funcionando normalmente.
-Se você encontrar algum problema, por favor, deixe-nos saber em nosso [Discord](discord.gg/8r7n7mU33R).
+Se você encontrar algum problema, por favor, deixe-nos saber em nosso [Discord](https://discord.gg/8r7n7mU33R).

@@ -39,4 +39,4 @@ etapa 3 novamente e certifique-se de que suas configurações estejam 100% corre
 
 ?>
 parabéns! O Jexactyl Discord Auth deve estar funcionando normalmente.
-Se você encontrar algum problema, informe-nos em nosso [Discord](discord.gg/8r7n7mU33R).
+Se você encontrar algum problema, informe-nos em nosso [Discord](https://discord.gg/8r7n7mU33R).
