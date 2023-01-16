@@ -84,7 +84,7 @@ provavelmente usando um kernel não suportado. Verifique nossas [Modificações 
 Se você estiver em um sistema operacional com systemd (Ubuntu 16+, Debian 8+, CentOS 7+) execute o comando abaixo para que o Docker inicie quando você inicializar sua máquina.
 
 ```bash
-systemctl enable --now docker
+sudo systemctl enable --now docker
 ```
 
 #### Habilitando Swap
@@ -111,9 +111,9 @@ O primeiro passo para instalar o Wings é garantir que tenhamos a configuração
 execute os comandos abaixo, que criarão o diretório base e baixarão o executável wings.
 
 ```bash
-mkdir -p /etc/pterodactyl
-curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
-chmod u+x /usr/local/bin/wings
+sudo mkdir -p /etc/pterodactyl
+sudo curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
+sudo chmod u+x /usr/local/bin/wings
 ```
 
 !>Aviso:Servidores OVH/SYS.Se estiver a utilizar um servidor fornecido pela OVH ou SoYouStart, esteja ciente de que o seu espaço em disco principal está provavelmente atribuído a
@@ -173,7 +173,7 @@ WantedBy=multi-user.target
 Em seguida, execute os comandos abaixo para recarregar systemd e iniciar o Wings.
 
 ```bash
-systemctl enable --now wings
+sudo systemctl enable --now wings
 ```
 
 ### Alocações de Nodes
