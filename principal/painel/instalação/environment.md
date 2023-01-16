@@ -8,7 +8,7 @@ isso será chamado `.env`, então é só copiar o arquivo para configurar o Pain
 exatamente como você quer.
 
 ```bash
-cp .env.example .env
+sudo cp .env.example .env
 ```
 
 ***
@@ -18,7 +18,7 @@ Depois disso, precisaremos instalar as dependências do Composer - o que permiti
 (como back-end e admin-side) para funcionar corretamente.
 
 ```bash
-composer install --no-dev --optimize-autoloader
+sudo composer install --no-dev --optimize-autoloader
 ```
 
 Por fim, geraremos um token aleatório que será a chave de criptografia/aplicativo do nosso projeto.
@@ -28,7 +28,7 @@ NÃO compartilhe esta chave com ninguém - proteja-a como uma senha.
 Se você perder esta chave, todos os dados serão impossíveis de recuperar.
 
 ```bash
-php artisan key:generate --force
+sudo php artisan key:generate --force
 ```
 
 ***
@@ -38,9 +38,9 @@ Jexactyl usa comandos CLI para definir a maioria das configurações básicas do
 O seguinte permitirá que você defina configurações gerais, de banco de dados e de correio.
 
 ```bash
-php artisan p:environment:setup
-php artisan p:environment:database
-php artisan p:environment:mail # Não é necessário executar o Painel.
+sudo php artisan p:environment:setup
+sudo php artisan p:environment:database
+sudo php artisan p:environment:mail # Não é necessário executar o Painel.
 ```
 
 ***
@@ -49,7 +49,7 @@ php artisan p:environment:mail # Não é necessário executar o Painel.
 Agora precisamos configurar todos os dados base para o Painel no banco de dados que você criou anteriormente. O comando abaixo pode levar algum tempo para ser executado dependendo da sua máquina. Por favor **NÃO saia do processo** até que esteja completo! Este comando configurará as tabelas do banco de dados e adicionará todos os Nests & Eggs que alimentam o Jexactyl.
 
 ```bash
-php artisan migrate --seed --force
+sudo php artisan migrate --seed --force
 ```
 
 ***
@@ -59,7 +59,7 @@ Para acessar o Painel pela primeira vez, você precisará criar um usuário via 
 crie usuários facilmente através do frontend! Aqui está um comando simples que o guiará pelas etapas de
 configurando a conta de administrador inicial:
 ```bash
-php artisan p:user:make
+sudo php artisan p:user:make
 ```
 
 ***
@@ -70,11 +70,11 @@ com o comando `chown`. Veja como fazer isso para todos os tipos de servidores da
 
 ```bash
 # Se estiver usando NGINX ou Apache (não no CentOS):
-chown -R www-data:www-data /var/www/jexactyl/*
+sudo chown -R www-data:www-data /var/www/jexactyl/*
 
 # Se estiver usando NGINX no CentOS:
-chown -R nginx:nginx /var/www/jexactyl/*
+sudo chown -R nginx:nginx /var/www/jexactyl/*
 
 # Se estiver usando o Apache no CentOS:
-chown -R apache:apache /var/www/jexactyl/*
+sudo chown -R apache:apache /var/www/jexactyl/*
 ```
