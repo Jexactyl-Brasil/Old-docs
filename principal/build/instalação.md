@@ -12,15 +12,15 @@ Em primeiro lugar, precisaremos instalar o pacote 'NodeJS' e também adicionar o
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-apt install -y nodejs
+sudo apt install -y nodejs
 ```
 
 Instale o 'Yarn' e as dependências necessárias para que o Jexactyl seja construído.
 
 ```bash
-npm i -g yarn
+sudo npm i -g yarn
 cd /var/www/jexactyl
-yarn # Installs building dependencies.
+sudo yarn # Installs building dependencies.
 ```
 
 ***
