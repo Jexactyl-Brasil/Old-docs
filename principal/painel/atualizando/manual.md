@@ -17,7 +17,7 @@ Comece desligando o Painel enquanto realizamos as atualizações.
 
 ```bash
 cd /var/www/jexactyl # Substitua 'jexactyl' por 'pterodactyl' se você migrou
-php artisan down
+sudo php artisan down
 ```
 
 ### Baixe a nova versão
@@ -26,8 +26,8 @@ Em seguida, usaremos cURL para baixar o arquivo de lançamento do GitHub
 e extraia-o.
 
 ```bash
-curl -L https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz | tar -xzv
-chmod -R 755 storage/* bootstrap/cache # Defina as permissões do servidor corretamente
+sudo curl -L https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz | sudo tar -xzv
+sudo chmod -R 755 storage/* bootstrap/cache # Defina as permissões do servidor corretamente
 ```
 
 ### Atualizar pacotes do Composer
@@ -37,7 +37,7 @@ precisará atualizar as dependências do Composer que permitem que o Jexactyl
 para funcionar corretamente em sua máquina.
 
 ```bash
-composer install --no-dev --optimize-autoloader
+sudo composer install --no-dev --optimize-autoloader
 ```
 
 ### Sincronizar alterações no banco de dados
@@ -46,7 +46,7 @@ Você precisará migrar as novas informações do banco de dados para o seu
 banco de dados para usar os recursos mais recentes do Jexactyl.
 
 ```bash
-php artisan migrate --seed --force
+sudo php artisan migrate --seed --force
 ```
 
 ### Definir permissões do servidor web
@@ -60,13 +60,13 @@ cd /var/www/jexactyl
 # EXECUTE APENAS UM DOS SEGUINTES COMANDOS!
 
 # Se estiver usando NGINX ou Apache (não no CentOS):
-chown -R www-data:www-data *
+sudo chown -R www-data:www-data *
 
 # Se estiver usando NGINX no CentOS:
-chown -R nginx:nginx *
+sudo chown -R nginx:nginx *
 
 # Se estiver usando o Apache no CentOS
-chown -R apache:apache *
+sudo chown -R apache:apache *
 ```
 
 ### Finalizar atualização
@@ -76,7 +76,7 @@ novamente on-line para que os usuários possam experimentar o que há de mais re
 
 ```bash
 sudo systemctl restart panel.service # Replace 'panel' with 'pteroq' if you have migrated
-php artisan up
+sudo php artisan up
 ```
 
 ?> Algum problema? Entre em contato conosco em [Discord](https://discord.gg/8r7n7mU33R).
