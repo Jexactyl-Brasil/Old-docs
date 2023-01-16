@@ -42,11 +42,11 @@ sudo mv /var/www/pterodactyl /var/www/pterodactyl-backup
 sudo mysqldump -u root -p panel > /var/www/pterodactyl-backup/panel.sql
 
 # Crie e entre na pasta onde novo diretório do jexactyl-brasil.
-sudo mkdir /var/www/jexactyl
-cd /var/www/jexactyl
+sudo mkdir /var/www/pterodactyl
+cd /var/www/pterodactyl
 
 # Copiar .env 
-sudo cp /var/www/pterodactyl-backup/.env /var/www/jexactyl/
+sudo cp /var/www/pterodactyl-backup/.env /var/www/pterodactyl/
 ```
 
 ***
