@@ -4,7 +4,7 @@
         * [Baixar Arquivos](principal/painel/instalação/download.md)
         * [Configurar Database](principal/painel/instalação/database.md)
         * [Configurar Environment](principal/painel/instalação/environment.md)
-        * [Queue Workers](principal/painel/instalação/queue-workers.md)
+        * [Inicialização](principal/painel/instalação/queue-workers.md)
 
     * `Configurar Servidor Web`
         * [Configurar SSL](principal/painel/servidores-web/setup-ssl.md)
