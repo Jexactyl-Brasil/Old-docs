@@ -30,15 +30,15 @@ Certifique-se de que esses comandos funcionem para você e, se não funcionarem,
 o gerenciador de pacotes do seu sistema operacional para saber como instalar as dependências.
 
 ```bash
-apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
+sudo apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
 
 LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
-add-apt-repository ppa:redislabs/redis -y
+sudo add-apt-repository ppa:redislabs/redis -y
 
 # O comando abaixo não é necessário se você estiver usando o Ubuntu 22.04 ou superior.
 curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 
-apt update
-apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+sudo apt update
+sudo apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
