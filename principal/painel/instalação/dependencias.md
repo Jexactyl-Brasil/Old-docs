@@ -42,3 +42,9 @@ sudo apt update
 sudo apt -y install php8.1 php8.1-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server nano
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
+
+
+
+teste
+
+<copy-button>TESTANDOALGOPRASE VER</copy-button>
