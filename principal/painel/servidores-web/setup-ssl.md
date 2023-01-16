@@ -7,9 +7,11 @@
 Começaremos baixando o pacote `certbot` que pode ser usado para criar certificados SSL
 para o seu site.
 ```bash
-apt install -y certbot
+# Se estiver usando NGINX, execute o seguinte:
+apt install -y certbot python3-certbot-nginx
+# Se estiver usando APACHE, execute o seguinte:
+apt install -y certbot python3-certbot-apache
 ```
-
 ***
 
 ### Criando um certificado
