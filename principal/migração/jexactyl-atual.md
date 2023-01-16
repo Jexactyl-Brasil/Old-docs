@@ -1,19 +1,21 @@
-# Migrar da versão atual do Jexactyl(Ingles) para o Jexactyl-Brasil
+# Migrar Paineis da Jexactyl e Pterodactyl
 
 !>Aviso dos Tradutores.
 
->Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um `database Novo` e Sem arquivos para melhor funcionamento.
+>Este painel Modifica Arquivos raizes do Jexactyl e do pterodactyl, é fortemente recomendado o uso de um `Database Novo` e Sem arquivos para melhor funcionamento.
 
 ***
 
-Usando este guia, você poderá trocar o Jexactyl para o Jexactyl-Brasil.
+Usando este guia, você irá migrar o painel Jexactyl(3.x,2x) e o Pterodactyl(1.x,0.7).
 
 ***
 
-### Crie um Backup do seu painel!
+### Crie um Backup do seu painel Atual!
 
-Diferente da migração do jexactyl na qual apenas adiciona novos arquivos, o Jexactyl-Brasil modifica tudo desde sua raiz e por isso não é possivel usar os arquivos originais da Jexactyl, porém não se preocupe, este processo é simples e segue a mesma ideia de um backup.
+Diferente da migração do jexactyl/Pterodactyl na qual apenas adiciona novos arquivos, o Jexactyl-Brasil modifica tudo desde sua raiz e por isso não é recomendado usar os arquivos originais da Jexactyl/Pterodactyl, porém não se preocupe, este processo é simples e segue a mesma ideia de um backup.
 Você pode fazer isso executando os seguintes comandos:
+
+## Se seu painel for Jexactyl use
 
 ```bash
 # renomear a estrutura original da jexactyl.
@@ -21,24 +23,36 @@ sudo mv /var/www/jexactyl /var/www/jexactyl-backup
 
 # Despeje o banco de dados MySQL e salve-o no diretório de backup.
 sudo mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
+
+# Crie e entre na pasta onde novo diretório do jexactyl-brasil.
+sudo mkdir /var/www/jexactyl
+cd /var/www/jexactyl
+
+# Copiar .env
+sudo cp /var/www/jexactyl-backup/.env /var/www/jexactyl/
 ```
-
-***
-
-## Baixar e criar diretório do Jexactyl Brasil
-
-### Criando novo diretório e copiando .env
-
-Após o renomeamendo da pasta, será necessário criar uma nova pasta e copiar o `.env` onde o Jexactyl-Brasil irá se instalar.
+## Se seu painel for Pterodactyl use
 
 ```bash
-# Criar e entrar na pasta onde novo diretório do jexactyl-brasil.
+
+# renomear a estrutura original do pterodactyl.
+sudo mv /var/www/pterodactyl /var/www/pterodactyl-backup
+
+# Despeje o banco de dados MySQL e salve-o no diretório de backup.
+sudo mysqldump -u root -p panel > /var/www/pterodactyl-backup/panel.sql
+
+# Crie e entre na pasta onde novo diretório do jexactyl-brasil.
 sudo mkdir /var/www/jexactyl
 cd /var/www/jexactyl
 
 # Copiar .env 
-sudo cp /var/www/jexactyl-backup/.env /var/www/jexactyl/
+sudo cp /var/www/pterodactyl-backup/.env /var/www/jexactyl/
 ```
+
+***
+
+### Baixando o Novo painel Jexactyl-Brasil
+
 Depois do renomear, criar o novo diretório e copiar o `.env`,Faremos o download dos arquivos Jexactyl-Brasil e sobrescrever os existentes.
 
 ```bash
@@ -48,6 +62,8 @@ sudo curl -L -o panel.tar.gz https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/
 # Baixe os arquivos atualizados e exclua o arquivo compactado.
 sudo tar -xzvf panel.tar.gz && rm -f panel.tar.gz
 ```
+
+### Configurar Permissões
 
 Em seguida, configure as permissões para que os arquivos do Painel possam ser acessados.
 
