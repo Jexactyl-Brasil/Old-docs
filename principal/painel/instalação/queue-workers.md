@@ -1,14 +1,27 @@
-# trabalhadores da fila
+# Inicializador do Jexactyl
 
 ***
 
 ### Crontab
-A primeira coisa que precisamos fazer é criar um novo cronjob que seja executado a cada minuto para processar tarefas específicas do Jexactyl, como limpeza de sessão e envio de tarefas agendadas para daemons.
+A primeira coisa que precisamos fazer é criar um novo cronjob que seja executado a cada minuto para processar tarefas específicas do Jexactyl, como limpeza de sessão e envio de tarefas agendadas para daemons.Usaremos `Nano` como editor.
 
-Você vai querer abrir seu crontab usando `sudo crontab -e` e então colar a linha abaixo. **Nano é o editor de texto mais fácil de usar, então pressione `1` quando solicitado para escolher um editor.**
+Use o comando a baixo e digite 1 para selecionar o editor de texto nano.
+
+```bash
+sudo crontab -e
+
+```
+
+Em seguida, cole essa linha para adicionar o Cron de tarefas da jexactyl.
 
 ```bash
 * * * * * php /var/www/jexactyl/artisan schedule:run >> /dev/null 2>&1
+```
+
+E por ultimo, cole essa linha para adicionar o Cron de Renovações do Jexactyl
+
+```bash
+0 0 * * * php /var/www/jexactyl/artisan p:schedule:renewal >> /dev/null 2>&1
 ```
 
 ***
@@ -16,7 +29,12 @@ Você vai querer abrir seu crontab usando `sudo crontab -e` e então colar a lin
 ### Systemd Queue Worker
 Em seguida, você precisa criar um novo trabalhador systemd para manter nosso processo de fila em execução em segundo plano. Essa fila é responsável por enviar e-mails e lidar com muitas outras tarefas em segundo plano para o Jexactyl.
 
-Crie um arquivo chamado `panel.service` em `/etc/systemd/system` com o conteúdo abaixo.
+Agora criaremos um arquivo chamado `panel.service` na pasta /etc/systemd/system/.
+
+```bash
+sudo nano /etc/systemd/system/panel.service
+```
+Após isso, cole o texto abaixo dentro do arquivo que acabamos de criar.
 
 ```bash
 # Jexactyl Queue Worker File
