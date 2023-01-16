@@ -3,7 +3,7 @@ Você precisará instalar as seguintes dependências para executar e usar o Jexa
 
 
 
-PHP `8.1` com as extensões:
+PHP `8.1` com as extensões:(PHP 8.2 Ainda não tem suporte.)
 - `cli`
 - `openssl`
 - `gd`
