@@ -29,7 +29,7 @@ apenas as versões listadas abaixo.
 |                  | 20.04   | :white_check_mark: |                                                                                 |
 |                  | 22.04   | :white_check_mark: |                                                                                 |
 |                  | 22.04.1 | :white_check_mark: |                                                                                 |
-|                  | 22.10   |        :x:         | Futuramente suportavel, na atualidade algumas dependencias não forão satisfeitas|
+|                  | 22.10   | :white_check_mark: |                                                                                 |
 | **CentOS**       | 7       | :white_check_mark: |                                                                                 |
 |                  | 8       | :white_check_mark: | Observe que o CentOS 8 é EOL. Use Rocky ou Alma Linux.                          |
 | **Debian**       | 10      | :white_check_mark: |                                                                                 |
@@ -41,8 +41,7 @@ apenas as versões listadas abaixo.
 Para executar o Wings, você precisará de um sistema Linux capaz de executar contêineres do Docker. A maioria dos VPS e quase todos
 servidores dedicados devem ser capazes de executar o Docker, mas há casos de borda.
 
-Quando seu provedor usa a virtualização `Virtuozzo`, `OpenVZ` (ou `OVZ`) ou `LXC`, você provavelmente não poderá
-corra Asas. Alguns provedores fizeram as alterações necessárias para a virtualização aninhada para oferecer suporte ao Docker. Peça à equipe de suporte do seu provedor para se certificar. KVM é garantido para trabalhar.
+Quando seu provedor usa a virtualização `Virtuozzo`, `OpenVZ` (ou `OVZ`) ou `LXC`, você provavelmente não irá conseguir executar as Wings. Alguns provedores fizeram as alterações necessárias para a virtualização aninhada para oferecer suporte ao Docker. Peça à equipe de suporte do seu provedor para se certificar. KVM é garantido que funcion.
 
 A maneira mais fácil de verificar é digitar `systemd-detect-virt`.
 Se o resultado não contiver `OpenVZ` ou `LXC`, tudo bem. O resultado de `nenhum` aparecerá ao executar hardware dedicado sem qualquer virtualização.
