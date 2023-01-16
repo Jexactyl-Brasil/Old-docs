@@ -18,10 +18,10 @@ Você pode fazer isso executando os seguintes comandos:
 
 ```bash
 # Faz backup da estrutura do arquivo e da chave .env.
-cp -R /var/www/jexactyl /var/www/jexactyl-backup
+sudo cp -R /var/www/jexactyl /var/www/jexactyl-backup
 
 # Despeje o banco de dados MySQL e salve-o no diretório de backup.
-mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
+sudo mysqldump -u root -p panel > /var/www/jexactyl-backup/panel.sql
 ```
 
 ***
@@ -34,7 +34,7 @@ Enquanto a migração ocorre, colocaremos o painel em um estado "indisponível" 
 acessar a interface do usuário ou API. Podemos fazer isso executando o seguinte:
 
 ```bash
-php artisan down
+sudo php artisan down
 ```
 
 ***
@@ -46,16 +46,16 @@ e sobrescrever os existentes.
 
 ```bash
 # Baixe a versão mais recente do Jexactyl usando CURL.
-curl -L -o panel.tar.gz https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz
+sudo curl -L -o panel.tar.gz https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz
 
 # Baixe os arquivos atualizados e exclua o arquivo compactado.
-tar -xzvf panel.tar.gz && rm -f panel.tar.gz
+sudo tar -xzvf panel.tar.gz && sudo rm -f panel.tar.gz
 ```
 
 Em seguida, configure as permissões para que os arquivos do Painel possam ser acessados.
 
 ```bash
-chmod -R 755 storage/* bootstrap/cache
+sudo chmod -R 755 storage/* bootstrap/cache
 ```
 
 ***
@@ -67,9 +67,9 @@ que executam este Painel. Para fazer isso, use `composer` para atualizar os paco
 
 ```bash
 # Correção temporária de erros.
-composer require asbiin/laravel-webauthn
+sudo composer require asbiin/laravel-webauthn
 
-composer install --no-dev --optimize-autoloader
+sudo composer install --no-dev --optimize-autoloader
 ```
 
 ***
@@ -79,7 +79,7 @@ composer install --no-dev --optimize-autoloader
 Você também deseja limpar o cache do painel para que o novo site apareça corretamente.
 
 ```bash
-php artisan optimize:clear
+sudo php artisan optimize:clear
 ```
 
 ***
@@ -90,7 +90,7 @@ Jexactyl inclui novos recursos e funções que exigem que você migre para seu b
 Felizmente, este é um processo simples que envolve apenas a execução de um comando:
 
 ```bash
-php artisan migrate --seed --force
+sudo php artisan migrate --seed --force
 ```
 
 ***
@@ -102,13 +102,13 @@ novos arquivos. Você pode fazer isso executando o comando específico para o se
 
 ```bash
 # Se estiver usando NGINX ou Apache (não no CentOS):
-chown -R www-data:www-data /var/www/jexactyl/*
+sudo chown -R www-data:www-data /var/www/jexactyl/*
 
 # Se estiver usando NGINX no CentOS:
-chown -R nginx:nginx /var/www/jexactyl/*
+sudo chown -R nginx:nginx /var/www/jexactyl/*
 
 # Se estiver usando o Apache no CentOS
-chown -R apache:apache /var/www/jexactyl/*
+sudo chown -R apache:apache /var/www/jexactyl/*
 ```
 
 ### Reiniciar os trabalhadores da fila
@@ -116,7 +116,7 @@ chown -R apache:apache /var/www/jexactyl/*
 Após cada atualização, você deve reiniciar o trabalhador da fila, para garantir que o novo código seja carregado e usado.
 
 ```bash
-php artisan queue:restart
+sudo php artisan queue:restart
 ```
 
 ***
@@ -126,7 +126,7 @@ php artisan queue:restart
 Agora que a migração foi concluída, você pode colocar o Painel novamente online e disponibilizá-lo aos usuários.
 
 ```bash
-php artisan up
+sudo php artisan up
 ```
 
 ?>
