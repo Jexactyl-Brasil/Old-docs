@@ -32,7 +32,7 @@ o gerenciador de pacotes do seu sistema operacional para saber como instalar as 
 ```bash
 sudo apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
 
-LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+sudo LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 sudo add-apt-repository ppa:redislabs/redis -y
 
 # O comando abaixo não é necessário se você estiver usando o Ubuntu 22.04 ou superior.
