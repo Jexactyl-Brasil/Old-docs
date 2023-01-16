@@ -9,7 +9,7 @@ panel será executado e, em seguida, nos moveremos para a pasta recém-criada.
 Abaixo está um exemplo de como realizar esta operação.
 
 ```bash
-mkdir -p /var/www/jexactyl
+sudo mkdir -p /var/www/jexactyl
 cd /var/www/jexactyl
 ```
 
@@ -22,7 +22,7 @@ Então, você pode extraí-lo usando o comando `tar` e atribuir permissões usan
 para os diretórios `storage/*` e `bootstrap/cache` para permitir que o site armazene objetos em cache e carregue mais rápido.
 
 ```bash
-curl -Lo panel.tar.gz https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz
-tar -xzvf panel.tar.gz
-chmod -R 755 storage/* bootstrap/cache/
+sudo curl -Lo panel.tar.gz https://github.com/Jexactyl-Brasil/Jexactyl-Brasil/releases/latest/download/panel.tar.gz
+sudo tar -xzvf panel.tar.gz
+sudo chmod -R 755 storage/* bootstrap/cache/
 ```
