@@ -10,8 +10,8 @@ Execute os comandos abaixo para reconstruir o front-end do Jexactyl.
 cd /var/www/jexactyl
 
 # Se construir em um desenvolvimento de environment:
-yarn watch
+sudo yarn watch
 
 # Se construir para produção:
-yarn build:production
+sudo yarn build
 ```
